@@ -1,0 +1,78 @@
+19.x 代码收集
+http://code4app.com
+http://p.codekk.com
+https://www.codota.com
+https://searchcode.com
+
+19.x Android Studio
+各种主题 : http://color-themes.com
+
+中文社区 : http://android-studio.org
+http://androiddrawables.com
+http://shapes.softartstudio.com/
+安卓工具： http://www.vysor.io/
+
+
+19.x 设计
+http://ui4app.com
+http://www.ui.cn
+https://www.behance.net/
+http://cssanimate.com/
+https://dribbble.com/
+http://www.uimaker.com/
+http://www.uigreat.com/
+http://creattica.com/
+https://tutsplus.com/
+
+19.x MD设计与配色
+https://www.materialpalette.com/icons
+-----
+https://material.google.com/
+https://material.io/
+http://materialdoc.cn
+-----
+https://material.uplabs.com
+https://www.materialpalette.com
+-----
+http://www.colorhunt.co
+http://color.farm
+https://colordrop.io/
+https://brandcolors.net
+
+19.x 测试
+https://testerhome.com
+
+19.x 图标
+sketchchina : http://www.sketchchina.com
+阿里巴巴icon网 : http://www.iconfont.cn
+压缩PNG : https://tinypng.com
+在线制作矢量图 : http://editor.method.ac
+https://materialdesignicons.com
+https://iconscout.com
+easyicon.net
+icons8.com
+
+
+19.x 网速和IP
+http://fast.com
+http://ipip.net
+
+
+http://apistudio.io/
+查看你的请求体：http://requestb.in/
+指定响应体：http://www.mocky.io/
+模拟异地网络访问：http://www.geoedge.com/
+http://mockbin.com/
+
+
+19.x 玩
+在线测试打字速度的网站 : http://www.keybr.com
+
+19.x
+在线cron表达式生成器：http://cron.qqe2.com/
+转换 json 到 java pojo：http://www.jsonschema2pojo.org/
+
+
+19.x
+专门收集国内外音乐专辑封面：http://coverbox.sinaapp.com/
+https://pixelmap.amcharts.com
