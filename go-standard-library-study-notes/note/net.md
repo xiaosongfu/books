@@ -40,8 +40,7 @@ server.ListenAndServe()
     server.ListenAndServe()
 可以定制更多的行为
 
-
-
+---
 
 ### http.Handle 和 http.HandleFunc 的区别
 ```
