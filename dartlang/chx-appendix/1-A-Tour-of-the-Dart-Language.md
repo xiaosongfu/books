@@ -2,13 +2,31 @@
 
 > [原文链接](https://www.dartlang.org/guides/language/language-tour)
 
+```
+A basic Dart program
+Important concepts
+Keywords
+Variables
+Built-in types
+Functions
+Operators
+Control flow statements
+Exceptions
+Classes
+Generics
+Libraries and visibility
+Asynchrony support
+```
+
+---
+
 该文档演示了如何使用每一个重要的 Dart 语言功能，从变量到操作符再到类和库，该文档假设你已经拥有其他语言的编程经验。
 
 阅读[A Tour of the Dart Libraries](https://www.dartlang.org/guides/libraries/library-tour)了解更多关于 Dart Core Library 的知识。无论何时想更详细的了解语言特性，请翻阅[Dart Language Specification](https://www.dartlang.org/guides/language/spec)。
 
 > 提示：你可以使用 DartPad 试验大多数 Dart 语法特性。[打开 DartPad](https://dartpad.dartlang.org/)
 
-## 一个基本的 Dart 程序
+## 一个基本的 Dart 程序(A basic Dart program)
 下面的代码用到了很多的 Dart 基础特性：
 
 ```
@@ -50,9 +68,29 @@ main() {
 
 
 
+## 重要概念(Important concepts)
 
-Dart supports top-level functions (such as main()), as well as functions tied to a class or object (static and instance methods, respectively). You can also create functions within functions (nested or local functions)
-Dart 支持顶级方法（就像 main() 函数）此外函数也可以属于某个类或某个对象() ... 嵌套或者局部函数
+学习 Dart 的过程中，请牢记下面这些事实和概念:
+
+* 所有可用赋值给一个变量的都是 object，并且所有的 object 都是一个 class 的实例。甚至 numbers，方法，还有 null 都是对象。所有的对象都继承自 Object 类。
+
+* 虽然 Dart 是强类型语言，但类型是可选的，因为 Dart 可以推断类型。当你想明确告知什么类型都不需要，可以使用特殊的类型 `dynamic`
+
+* Dart 支持泛型，如 `List<int>` (一个整型 list) 或 `List<dynamic>` (一个任意类型对象的 list) 
+
+* Dart supports top-level functions (such as main()), as well as functions tied to a class or object (static and instance methods, respectively). You can also create functions within functions (nested or local functions)
+Dart 支持顶级函数（如 main() 函数），函数也可以属于某个类或某个对象(如静态函数和实例函数)。你也可以在函数里面创建函数（嵌套函数或者局部函数）
+
+* 同样的，Dart 也支持顶级变量，变量也可以属于某个类或某个对象(静态变量和实例变量)。实例变量就是熟知的域和属性。
+
+* 不像 Java ，Dart 没有 `public` `protected` `private` 等关键字。如果一个标识符使用 `_` 开头，则它是当前库私有的。更多的细节请阅读 [库和可见性](https://www.dartlang.org/guides/language/language-tour#libraries-and-visibility)
+
+* 标识符可以使用字母和 _ 开头，后面跟字母和数字。
+
+* Dart 有表达式(有运行时值)和语句(没有运行时值)。例如条件表达式 `condition ? expr1 : expr2` 有一个值，expr1 或 expr2。相反的，if 语句就没有值。一个语句通常包含一个或多个表达式，但是一个表达式不能直接包含一个语句。 
+
+* Dart 工具可以报告两种类型的问题：警告和错误。警告仅仅表明你的代码可能不能很好的工作，但它不会阻止你的代码执行。错误可能是编译期错误或运行时错误。编译期错误会阻止代码运行；运行时错误会报告一个异常，当代码运行的时候。
+
 
 ---
 
