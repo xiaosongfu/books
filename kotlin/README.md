@@ -1,2 +1,28 @@
-# Introduction
+### 1.1 新特性
+Java 8 标准库支持
+现在有支持在 Java 7 和 8 中新添加的 JDK API 的标准库的独立版本。 如果你需要访问新的 API，请使用 kotlin-stdlib-jre7 和 kotlin-stdlib-jre8 maven 构件，而不是标准的 kotlin-stdlib。 这些构件是在 kotlin-stdlib 之上的微小扩展，它们将它作为传递依赖项带到项目中。
 
+
+### 1.2 新特性
+Kotlin 标准库构件与拆分包
+Kotlin 标准库现在完全兼容 Java 9 的模块系统，它禁止拆分包 （多个 jar 文件声明的类在同一包中）。为了支持这点，我们引入了新的 kotlin-stdlib-jdk7 与 kotlin-stdlib-jdk8 ，它们取代了旧版的 kotlin-stdlib-jre7 与 kotlin-stdlib-jre8。
+
+
+### 1.3 新特性
+IDE 中的代码风格支持
+Kotlin 1.3 在 IDE 中引入了代码[推荐风格](https://www.kotlincn.net/docs/reference/coding-conventions.html)支持。具体迁移指南查看[这里](https://www.kotlincn.net/docs/reference/code-style-migration-guide.html)。
+
+
+
+---
+
+- 安全调⽤运算符: ?. 
+- 安全转换运算符: as? 
+- Elvis运算符(空值合并运算符): ?: 
+- ⾮空断言运算符: !!
+- 展开运算符: *
+
+
+----
+
+算术运算符、关系运算符、逻辑运算符、位运算符和其他运算符
