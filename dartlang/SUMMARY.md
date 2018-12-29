@@ -8,39 +8,29 @@
 ## 2. 数据类型
 ##### 2.1 概述
 ##### 2.2 变量和常量
-##### 2.3 String
-##### 2.3 bool
-##### 2.4 num&int&double
-##### 2.5 List
-##### 2.6 Map
-##### 2.7 Set
+##### 2.3 Number
+##### 2.4 String
+##### 2.5 Boolean
+##### 2.6 List
+##### 2.7 Map
+##### 2.x Set
 ##### 2.x 注释
-Read more about comments in Dart, including how the documentation tooling works.
 
+## 3. 函数
+##### 3.1 函数概述
+##### 3.2 main 函数
+##### 3.3 可选参数
+3.3.1 命名可选参数
+3.3.2 位置可选参数
+3.3.3 可选参数的默认值
 
-## 3. 控制流
-##### 3.1 
-
-if for while
-
-break ， continue, switch ， case, and assert.
-
-
-
-
-## 4. 函数
+## 4. 运算符
 ##### 4.1 
 
-
-可以不指定返回值的类型
-单表达式函数可以使用箭头语法
-匿名函数
-
-
-## 5. 面向对象
+## 5. 控制流程语句
 ##### 5.1 
 
-
+## chx 移除
 
 
 ## 6. 包管理
