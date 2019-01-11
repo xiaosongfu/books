@@ -30,42 +30,22 @@
 ## 5. 控制流程语句
 ##### 5.1 
 
-## chx 移除
-
-
-## 6. 包管理
-##### 6.1 
-
-导入核心库
-
-导入第三方库（从第三方包导入库）
-
-导入文件
-
-
-// Importing core libraries
-import 'dart:async';
-import 'dart:math';
-
-// Importing libraries from external packages
-import 'package:test/test.dart';
-
-// Importing files
-import 'path/to/my_other_file.dart';
-import '../lib/samples/spacecraft.dart';
-
-
-Read more about libraries and visibility in Dart, including library prefixes, show and hide, and lazy loading through the deferred keyword.
-
-
-##### 6.x pub 包管理工具
-
+## 6. 包管理&工具
+##### 6.1 包管理工具 - pub
 https://www.dartlang.org/tools/pub
+##### 6.x 代码格式 - dartfmt
+##### 6.x 定制静态检查 - dartanalyzer
+##### 6.x 文档生成 - dartdoc
+##### 6.x 转化成 JavaScript - dart2js
 
-
-
-## 7. 异步编程
-##### 7.1 
+## 7. 库
+##### 7.1 使用库
+##### 7.2 创建库
+##### 7.3 常用库
+##### 7.4 哪些不应该被提交到代码仓库
 
 ## 8. 其他
 ##### 8.1 异常处理
+
+## 9. 文档
+##### 9.1 

@@ -13,7 +13,7 @@ if (price == null) {
 
 等同于：`print(price??"FREE")`  => NULL AWARE OPERATORS
 
-### ??= 空感知赋值
+### ??= 空感知赋值符
 
 ```
 // 如果b为空时，将变量赋值给b，否则，b的值保持不变。
