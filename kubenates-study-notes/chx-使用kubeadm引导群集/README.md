@@ -1,12 +1,5 @@
-# 目录
+# Bootstrapping Clusters with kubeadm
 
-### 1. 
-##### 1.1 
-
-安装 ： 参考 `Centos 7 使用 kubeadm 安装 Kubernetes 集群`
-
-
-Bootstrapping Clusters with kubeadm
 01 - Installing kubeadm (EN)
 02 - Creating a single master cluster with kubeadm (EN)
 03 - Customizing control plane configuration with kubeadm (EN)
@@ -15,7 +8,3 @@ Bootstrapping Clusters with kubeadm
 06 - Set up a High Availability etcd cluster with kubeadm (EN)
 07 - Configuring each kubelet in your cluster using kubeadm (EN)
 08 - Troubleshooting kubeadm (EN)
-
-### x. minikube
-##### x.1 安装 minikube
-##### x.2 启动 minikube
