@@ -1,3 +1,32 @@
+# 国内安装
+
+1. 更换 docker repo
+2. 更换 kubernetes reop
+3. xx
+
+---
+
+### 1. 更换 docker repo
+
+```
+https://download.docker.com/linux/centos/docker-ce.repo
+
+http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+```
+
+
+### 2. 更换 kubernetes reop
+
+```
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
+
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
+gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+```
+
+### 3. xx
 
 ```
 [root@DockerApp ~]# kubeadm config images list
