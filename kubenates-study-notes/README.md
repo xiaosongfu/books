@@ -24,14 +24,44 @@ Pod 要能够相互通信，Kubernetes Cluster 必须部署 Pod 网络，flannel
 kubelet 是唯一没有以容器形式运行的 Kubernetes 组件，它在 Ubuntu 中通过 Systemd 运行。
 
 ```
+[root@dockerapp ~]# systemctl status kubelet
+● kubelet.service - kubelet: The Kubernetes Node Agent
+   Loaded: loaded (/etc/systemd/system/kubelet.service; enabled; vendor preset: disabled)
+  Drop-In: /etc/systemd/system/kubelet.service.d
+           └─10-kubeadm.conf
+   Active: active (running) since Thu 2019-01-17 18:51:10 CST; 4 days ago
+     Docs: https://kubernetes.io/docs/
+ Main PID: 16499 (kubelet)
+    Tasks: 22
+   Memory: 78.3M
+   CGroup: /system.slice/kubelet.service
+           └─16499 /usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf --config=/var/lib/kubelet/config.yaml --cgroup-driver=cgroupfs --network-plugin=cni -...
 
+Jan 17 19:14:10 dockerapp kubelet[16499]: E0117 19:14:10.956418   16499 kubelet_node_status.go:380] Error updating node status, will retry: error getting node "dockerapp": Get https://192.168.160.3:6443/api/v1...waiting headers)
+Jan 17 19:14:25 dockerapp kubelet[16499]: E0117 19:14:25.165679   16499 event.go:203] Server rejected event '&v1.Event{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ObjectMeta:v1.ObjectMeta{Name:"kube-schedule..."", Generation:0
+Jan 17 19:21:07 dockerapp kubelet[16499]: I0117 19:21:07.631004   16499 reconciler.go:207] operationExecutor.VerifyControllerAttachedVolume started for volume "default-token-ws8ql" (UniqueName: "kubernetes.io/secret/fc05f998-...
+Jan 17 19:21:08 dockerapp kubelet[16499]: W0117 19:21:08.823709   16499 pod_container_deletor.go:75] Container "25891036a2e3f4208bc32c32ee97a7cf8cabbe4f3fad442c75e737680da5d359" not found in pod's containers
+Jan 17 19:21:39 dockerapp kubelet[16499]: I0117 19:21:39.573308   16499 reconciler.go:181] operationExecutor.UnmountVolume started for volume "default-token-ws8ql" (UniqueName: "kubernetes.io/secret/cac78142-1a48-11e9-ba96-00...
+Jan 17 19:21:39 dockerapp kubelet[16499]: I0117 19:21:39.579889   16499 operation_generator.go:687] UnmountVolume.TearDown succeeded for volume "kubernetes.io/secret/cac78142-1a48-11e9-ba96-0050569c686c-default-token-ws8ql" (...
+Jan 17 19:21:39 dockerapp kubelet[16499]: I0117 19:21:39.673518   16499 reconciler.go:301] Volume detached for volume "default-token-ws8ql" (UniqueName: "kubernetes.io/secret/cac78142-1a48-11e9-ba96-0050569c68...p" DevicePath ""
+Jan 17 19:28:12 dockerapp kubelet[16499]: I0117 19:28:12.800002   16499 reconciler.go:181] operationExecutor.UnmountVolume started for volume "default-token-ws8ql" (UniqueName: "kubernetes.io/secret/fc05f998-1a49-11e9-ba96-00...
+Jan 17 19:28:12 dockerapp kubelet[16499]: I0117 19:28:12.807912   16499 operation_generator.go:687] UnmountVolume.TearDown succeeded for volume "kubernetes.io/secret/fc05f998-1a49-11e9-ba96-0050569c686c-default-token-ws8ql" (...
+Jan 17 19:28:12 dockerapp kubelet[16499]: I0117 19:28:12.900218   16499 reconciler.go:301] Volume detached for volume "default-token-ws8ql" (UniqueName: "kubernetes.io/secret/fc05f998-1a49-11e9-ba96-0050569c68...p" DevicePath ""
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@dockerapp ~]#
 ```
 
 ---
 
 Controller
     * Deployments
+    * ReplicaSet
     * Services
+    * Job
+    * CronJob
+
+CRD（CustomResourceDefinenation）：
+    比如：kubeless 有 Functions、Triggers 和 
 
 ---
 

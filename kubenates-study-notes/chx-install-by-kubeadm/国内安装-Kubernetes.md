@@ -1,8 +1,8 @@
-# 国内安装
+# 国内安装 Kubernetes
 
 1. 更换 docker repo
 2. 更换 kubernetes reop
-3. xx
+3. 解决拉取镜像报错
 
 ---
 
@@ -26,7 +26,9 @@ baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
 ```
 
-### 3. xx
+### 3. 解决拉取镜像报错
+
+先查看本次安装需要下载的镜像的版本：
 
 ```
 [root@DockerApp ~]# kubeadm config images list
@@ -43,7 +45,7 @@ failed to pull image "k8s.gcr.io/kube-apiserver:v1.13.2": output: Error response
 [root@DockerApp ~]#
 ```
 
-拉取镜像报错，可以按照如下方法解决：
+如果拉取镜像报错，可以按照如下方法解决：
 
 docker hub 上有一个用户： https://hub.docker.com/u/mirrorgooglecontainers ，这里有所有的这些镜像。
 

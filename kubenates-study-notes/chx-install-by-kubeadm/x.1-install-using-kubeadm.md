@@ -1,3 +1,4 @@
+# 使用 kubeadm 安装
 
 > 第一版可以参考：[Centos 7 使用 kubeadm 安装 Kubernetes 集群]()
 
@@ -50,9 +51,17 @@ cat >> /etc/hosts << EOF
 EOF
 ```
 
-1. 关闭防火墙： `systemctl stop firewalld && systemctl disable firewalld`
+1. 关闭防火墙： 
 
-2. 禁用SELINUX：`sed -i 's/^SELINUX=enforcing$/SELINUX=disabled/' /etc/selinux/config && setenforce 0`
+```
+systemctl stop firewalld && systemctl disable firewalld
+```
+
+2. 禁用SELINUX：
+
+```
+sed -i 's/^SELINUX=enforcing$/SELINUX=disabled/' /etc/selinux/config && setenforce 0
+```
 
 3. 关闭swap
 
@@ -60,9 +69,9 @@ Kubernetes 1.8开始要求关闭系统的Swap交换分区，方法如下:
 
 ```
 swapoff -a
-```
 
 free -m
+```
 
 4. Docker 防火墙规则
 
@@ -70,9 +79,9 @@ Docker从1.13版本开始调整了默认的防火墙规则，禁用了iptables f
 
 ```
 iptables -P FORWARD ACCEPT
-```
 
 iptables -nvL
+```
 
 5. kube-proxy 开启 ipvs
 
@@ -107,6 +116,10 @@ chmod 755 /etc/sysconfig/modules/ipvs.modules && bash /etc/sysconfig/modules/ipv
 
 最后还需要确保各个节点上已经安装了 ipset 软件包，使用命令 `yum install ipset` 安装。 为了便于查看ipvs的代理规则，最好安装一下管理工具 ipvsadm，使用命令 `yum install ipvsadm` 安装。
 
+```
+yum install -y ipset ipvsadm
+```
+
 如果以上前提条件如果不满足，则即使 kube-proxy 的配置开启了 ipvs 模式，也会退回到 iptables 模式。
 
 
@@ -130,12 +143,12 @@ yum-config-manager \
     https://download.docker.com/linux/centos/docker-ce.repo
 ```
 
-请将 repo 地址改为阿里云的地址：`http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo`
+请将 repo 地址改为阿里云的地址：`https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo`
 
 ```
 yum-config-manager \
     --add-repo \
-    http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+    https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 
 3. 安装 docker-ce
@@ -155,7 +168,10 @@ $ yum list docker-ce --showduplicates | sort -r
 docker-ce.x86_64            18.06.1.ce-3.el7.centos             docker-ce-stable
 ```
 
-使用 `18.09.0.ce` 代替版本字符串即可：`yum install docker-ce-18.06.1.ce`
+使用 `18.09.0.ce` 代替版本字符串即可：
+```
+yum install -y docker-ce-18.06.1.ce
+```
 
 4. 启动 docker，并设置开机自启动
 
@@ -203,7 +219,11 @@ yum makecache fast
 yum install -y kubelet kubeadm kubectl
 ```
 
-kubelet 不需要手动启动，`kubeadm init` 的过程中会启动它，但是需要设置为开机自启动：`systemctl enable kubelet`
+启动 kubelet 并设置为开机自启动：
+
+```
+systemctl enable kubelet && systemctl start kubelet
+```
 
 ### 4. kubeadm init
 
@@ -606,4 +626,3 @@ kubeadm reset
 
 * [使用 kubeadm 安装新版本 Kubernetes 1.13](https://mp.weixin.qq.com/s/vK6mOElXk_gYfW6lSsTZgA)
 * [kubeadm部署kubernetes 1.13.1集群](https://blog.csdn.net/networken/article/details/84991940)
-* []()
