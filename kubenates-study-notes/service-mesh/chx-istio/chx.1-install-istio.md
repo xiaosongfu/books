@@ -1,0 +1,3 @@
+命名空间为istio-system
+
+命名空间为istio-system的Pod，其中包含许多组件，如用于监控的Grafana、Prometheus，用于服务查看的ServiceGraph，以及Istio组件citadel、mixer、pilot等。

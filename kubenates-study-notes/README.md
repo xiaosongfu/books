@@ -1,3 +1,21 @@
+```
+dispatcher.onGet('/health', function (req, res) {
+  res.writeHead(200, {'Content-type': 'application/json'})
+  res.end(JSON.stringify({status: 'Ratings is healthy'}))
+})
+```
+
+```
+server.mount_proc '/health' do |req, res|
+    res.status = 200
+    res.body = {'status' => 'Details is healthy'}.to_json
+    res['Content-Type'] = 'application/json'
+end
+```
+
+
+---
+
 ### kube-apiserver
 API Server 提供 HTTP/HTTPS RESTful API，即 Kubernetes API。API Server 是 Kubernetes Cluster 的前端接口，各种客户端工具（CLI 或 UI）以及 Kubernetes 其他组件可以通过它管理 Cluster 的各种资源。
 

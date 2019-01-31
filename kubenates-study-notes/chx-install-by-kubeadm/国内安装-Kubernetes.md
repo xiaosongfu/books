@@ -74,3 +74,6 @@ docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1
 docker tag mirrorgooglecontainers/etcd:3.2.24 k8s.gcr.io/etcd:3.2.24
 docker tag coredns/coredns:1.2.6 k8s.gcr.io/coredns:1.2.6
 ```
+
+
+!!! ===> `gcr.io` # `gcr.mirrors.ustc.edu.cn`

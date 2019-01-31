@@ -1,3 +1,6 @@
+
+https://github.com/kubeless/kubeless-ui
+
 #### 安装
 
 To run the UI inside your Kubernetes cluster as a Deployment and Service you can run the following:
@@ -6,7 +9,7 @@ To run the UI inside your Kubernetes cluster as a Deployment and Service you can
 kubectl create -f https://raw.githubusercontent.com/kubeless/kubeless-ui/master/k8s.yaml
 ```
 
-Kubeless UI 的部署创建了一个 NodePort 的Service。通过访问节点的 IP 加上 NodePort 的端口就可以从 Kubernetes 集群外的主机访问这个控制台
+Kubeless UI 的部署创建了一个 NodePort 的 Service。通过访问节点的 IP 加上 NodePort 的端口就可以从 Kubernetes 集群外的主机访问这个控制台
 
 命令执行记录：
 
@@ -17,8 +20,6 @@ clusterrole.rbac.authorization.k8s.io/kubeless-ui created
 clusterrolebinding.rbac.authorization.k8s.io/kubeless-ui created
 deployment.extensions/ui created
 service/ui created
-[root@dockerapp ~]#
-
 
 [root@dockerapp ~]# kubectl get deployments -n kubeless
 NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
@@ -40,6 +41,12 @@ kubeless-controller-manager-7c7bcb8db4-fw7mq   3/3     Running   0          74m
 ui-59dbf498c-7gzct                             2/2     Running   0          2m30s
 [root@dockerapp ~]#
 ```
+
+通过 `kubectl get services -n kubeless` 命令查询到 ui 的端口为 30598，通过 ip:port 即可访问：
+
+![](../images/chx/kubeless-ui.png)
+
+---
 
 ```
 [root@dockerapp ~]# kubectl describe deployment ui -n kubeless

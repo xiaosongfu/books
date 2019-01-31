@@ -11,11 +11,11 @@
 ![](../images/chx1/kubeless-release.png)
 
 ```
-wget https://github.com/kubeless/kubeless/releases/download/v1.0.1/kubeless_darwin-amd64.zip
+$ wget https://github.com/kubeless/kubeless/releases/download/v1.0.1/kubeless_darwin-amd64.zip
 
-unzip kubeless_darwin-amd64.zip
+$ unzip kubeless_darwin-amd64.zip
 
-cp bundles/kubeless_$OS-amd64/kubeless /usr/local/bin/
+$ cp bundles/kubeless_$OS-amd64/kubeless /usr/local/bin/
 ```
 
 > 方法二
@@ -24,14 +24,14 @@ cp bundles/kubeless_$OS-amd64/kubeless /usr/local/bin/
 
 ```
 # 获取最新的 release 版本号和当前 OS 的类型
-export RELEASE=$(curl -s https://api.github.com/repos/kubeless/kubeless/releases/latest | grep tag_name | cut -d '"' -f 4)
+$ export RELEASE=$(curl -s https://api.github.com/repos/kubeless/kubeless/releases/latest | grep tag_name | cut -d '"' -f 4)
 
-export OS=$(uname -s| tr '[:upper:]' '[:lower:]')
+$ export OS=$(uname -s| tr '[:upper:]' '[:lower:]')
 
 # 下载 zip 压缩包并解压，然后将 kubeless 可执行文件复制到 /usr/local/bin/ 目录
-curl -OL https://github.com/kubeless/kubeless/releases/download/$RELEASE/kubeless_$OS-amd64.zip && \
-  unzip kubeless_$OS-amd64.zip && \
-  sudo cp bundles/kubeless_$OS-amd64/kubeless /usr/local/bin/
+$ curl -OL https://github.com/kubeless/kubeless/releases/download/$RELEASE/kubeless_$OS-amd64.zip && \
+    unzip kubeless_$OS-amd64.zip && \
+    sudo cp bundles/kubeless_$OS-amd64/kubeless /usr/local/bin/
 ```
 
 ---
@@ -67,17 +67,17 @@ fuxiaosongdeMac-mini:~ fuxiaosong$
 先创建 `kubeless` 命名空间，kubeless 应用默认使用该命名空间：
 
 ```
-kubectl create namespace kubeless
+$ kubectl create namespace kubeless
 ```
 
 然后通过 yaml 配置文件安装 kubeless，安装完成后会创建 `Functions` CRD，并启动一个 Controller：
 
 ```
 # 启用 RBAC:
-kubectl create -f https://github.com/kubeless/kubeless/releases/download/v1.0.1/kubeless-v1.0.1.yaml 
+$ kubectl create -f https://github.com/kubeless/kubeless/releases/download/v1.0.1/kubeless-v1.0.1.yaml 
 
 # 不启用 RBAC:
-kubectl create -f https://github.com/kubeless/kubeless/releases/download/v1.0.1/kubeless-non-rbac-v1.0.1.yaml 
+$ kubectl create -f https://github.com/kubeless/kubeless/releases/download/v1.0.1/kubeless-non-rbac-v1.0.1.yaml 
 ```
 
 > 我在安装的时候，安装 `不启用 RBAC` 一直失败，安装 `启用 RBAC` 才成功了。
