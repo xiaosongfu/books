@@ -1,7 +1,14 @@
+* `gcr.io` --> `gcr.mirrors.ustc.edu.cn`
+* https://hub.docker.com/u/mirrorgooglecontainers （mirrorgooglecontainers/kube-scheduler:v1.13.2）
+* registry.aliyuncs.com/google_containers/kube-scheduler:v1.13.2
+* registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.12.3
+
+---
+
 # 国内安装 Kubernetes
 
 1. 更换 docker repo
-2. 更换 kubernetes reop
+2. 更换 kubernetes repo
 3. 解决拉取镜像报错
 
 ---
@@ -15,7 +22,7 @@ http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 
 
-### 2. 更换 kubernetes reop
+### 2. 更换 kubernetes repo
 
 ```
 baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
@@ -74,6 +81,3 @@ docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1
 docker tag mirrorgooglecontainers/etcd:3.2.24 k8s.gcr.io/etcd:3.2.24
 docker tag coredns/coredns:1.2.6 k8s.gcr.io/coredns:1.2.6
 ```
-
-
-!!! ===> `gcr.io` # `gcr.mirrors.ustc.edu.cn`

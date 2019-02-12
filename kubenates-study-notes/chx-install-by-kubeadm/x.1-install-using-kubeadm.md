@@ -9,7 +9,7 @@
 2. 安装 docker
 3. 安装 kubeadm、kubectl、kubelet
 4. kubeadm init
-5. 配置 kubelet
+5. 配置 kubectl
 6. 安装 pod 网络附加组件
 7. kubeadm join
 8. 为 kube-proxy 开启 ipvs
@@ -355,7 +355,7 @@ rm -rf /var/lib/cni/
 
 如果要恢复，不让调度 pod 到 master，可以执行如下命令： `kubectl taint node dockerapp node-role.kubernetes.io/master:NoSchedule`
 
-### 5. 配置 kubelet
+### 5. 配置 kubectl
 
 kubectl 是管理 Kubernetes Cluster 的命令行工具，前面我们已经在所有的节点安装了 kubectl。Master 初始化完成后需要做一些配置工作，然后 kubectl 就能使用了。
 依照 kubeadm init 输出的最后提示，推荐用 Linux 普通用户执行 kubectl。

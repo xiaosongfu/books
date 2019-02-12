@@ -1,0 +1,1 @@
+Istio实践主要分为三步，第一步下载并部署Istio；第二步部署Bookinfo微服务；第三步通过指定yaml文件测试Istio的功能特性。
