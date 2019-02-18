@@ -4,6 +4,8 @@
 
 > 这一版是 2019年01月17日 安装 v1.13.2!!
 
+---
+
 > 目录
 1. 准备
 2. 安装 docker
@@ -84,6 +86,8 @@ iptables -nvL
 ```
 
 5. kube-proxy 开启 ipvs
+
+Kubernetes 从 1.8 开始增加了 IPVS 支持，IPVS 相对 IPtables 效率会更高一些。使用 IPVS 模式需要安装 `ipvsadm`、`ipset` 工具包和加载 `ip_vs` 内核模块。
 
 由于 ipvs 已经加入到了内核的主干，所以为 kube-proxy 开启 ipvs 的前提需要加载以下的内核模块：
 

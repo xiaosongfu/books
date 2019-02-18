@@ -1,11 +1,6 @@
-# 简单使用
+# 简单 运行一个应用
 
-### 运行一个应用
-
-
-
----
-
+### 1
 
 ```
 apiVersion: apps/v1beta1
@@ -16,7 +11,7 @@ metadata:
     k8s-app: nginx-demo
 spec:
   replicas: 2
-template:
+  template:
     metadata:
       labels:
         app: nginx
@@ -26,9 +21,9 @@ template:
         image: nginx:1.7.9
         ports:
         - containerPort: 80
+```
 
----
-
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -43,6 +38,7 @@ spec:
     app: nginx
 ```
 
+### 2
 
 ```
 apiVersion: v1
@@ -59,4 +55,42 @@ spec:
       - "3600"
     imagePullPolicy: IfNotPresent
   restartPolicy: Always
+```
+
+### 3
+
+> 来源：https://ieevee.com/tech/2017/01/20/k8s-service.html
+
+```
+[root@localhost k8s]# cat run-my-nginx.yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - name: my-nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+
+[root@localhost k8s]# cat run-my-nginx-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx
+  labels:
+    run: my-nginx
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: my-nginx
 ```

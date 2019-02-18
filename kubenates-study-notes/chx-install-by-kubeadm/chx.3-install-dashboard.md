@@ -155,17 +155,18 @@ kube-proxy-psrtb                       1/1     Running   5          25d
 kube-scheduler-dockerapp               1/1     Running   9          26d
 kubernetes-dashboard-f94567dff-gcfzm   1/1     Running   0          51s
 tiller-deploy-6bcc84d88-m9pk5          1/1     Running   0          6h16m
+
 [root@dockerapp ~]# kubectl get deployments -n kube-system
 NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
 coredns                2/2     2            2           26d
 kubernetes-dashboard   1/1     1            1           58s
 tiller-deploy          1/1     1            1           6h16m
+
 [root@dockerapp ~]# kubectl get services -n kube-system
 NAME                   TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)         AGE
 kube-dns               ClusterIP   10.96.0.10      <none>        53/UDP,53/TCP   26d
 kubernetes-dashboard   NodePort    10.96.235.169   <none>        443:31915/TCP   65s
 tiller-deploy          ClusterIP   10.108.32.166   <none>        44134/TCP       11d
-[root@dockerapp ~]#
 ```
 
 通过 Service 看到了 kubernetes-dashboard Service 的端口对应为 443:31915，类型为 NodePort。

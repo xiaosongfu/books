@@ -76,18 +76,20 @@ Please note: by default, Tiller is deployed with an insecure 'allow unauthentica
 To prevent this, run `helm init` with the --tiller-tls-verify flag.
 For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
 Happy Helming!
-[root@dockerapp ~]#
+
+[root@dockerapp ~]# helm repo list
+NAME  	URL
+stable	https://kubernetes-charts.storage.googleapis.com
+local 	http://127.0.0.1:8879/charts
 ```
 
-> 注意有一行输出：`Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com`，这个 repo 地址是官方的 `stable` 仓库地址，`incubator` 仓库地址是 `xxx`。
+> 注意有一行输出：`Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com`，这个 repo 地址是官方的 `stable` 仓库地址，新版本同时还会添加一个 `local` 本地仓库。
 
 > 官方的 `stable` 仓库地址可能访问不到，可以使用 aliyun 提供的：
 
 ```
 helm init --service-account tiller --tiller-image registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.12.3 --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
 ```
-
-> tiller pod 一直启动不起来，使用 `kubectl --namespace=kube-system set image deployments/tiller-deploy tiller=docker.io/jessestuart/tiller:v2.12.3` 更新 image 试试。
 
 helm 命令需要与 Tiller 容器进行通信，因此本地必须安装 socat 进行端口转发：
 
@@ -308,11 +310,7 @@ Events:
 
 由于 Tiller 将其数据存储在 Kubernetes ConfigMaps 中，因此您可以安全地删除并重新安装 Tiller，而无需担心丢失任何数据。
 
-删除 Tiller 的推荐方法是使用 `kubectl delete deployment tiller-deploy --namespace kube-system`，或者更简洁的 `helm reset`。然后可以从客户端重新安装Tiller：
-
-```
-$ helm init
-```
+删除 Tiller 的推荐方法是使用 `kubectl delete deployment tiller-deploy --namespace kube-system`，或者更简洁的 `helm reset`。然后可以从客户端重新安装Tiller。
 
 # 2. 安装一个 Chart 示例
 
@@ -327,9 +325,7 @@ NAME:   wintering-rodent
 LAST DEPLOYED: Thu Oct 18 14:21:18 2018
 NAMESPACE: default
 STATUS: DEPLOYED
-
 ......
-
 ```
 
 在上面的例子中，发布了 `stable/mysql` 图表，我们的新 release 的名称是 wintering-rodent。通过运行 `helm inspect stable/mysql`，您可以简单了解此 MySQL Chart 的功能。
@@ -360,12 +356,21 @@ $ helm status wintering-rodent
 LAST DEPLOYED: Thu Oct 18 14:21:18 2018
 NAMESPACE: default
 STATUS: DELETED
-
 ......
-
 ```
 
 因为 Helm 甚至在您删除它们之后也跟踪它们，所以您可以审核集群的历史记录，甚至取消删除一个 release（使用 `helm rollback`）。
+
+如果要彻底删除请使用 `--purge` 参数：
+
+```
+$ helm delete --purge wintering-rodent
+```
+
+
+
+
+
 
 ---
 
@@ -431,3 +436,9 @@ Global Flags:
       --tiller-namespace string         namespace of Tiller (default "kube-system")
 [root@dockerapp ~]#
 ```
+
+---
+
+参考：
+
+* [Helm 入门指南](https://mp.weixin.qq.com/s/f-sHjfIGh2ESm0ovtY8DSw)

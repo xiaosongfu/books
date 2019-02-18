@@ -1,12 +1,12 @@
 # 搭建自己的 Helm Chart Repository
 
-https://github.com/helm/chartmuseum
+## 1. https://github.com/helm/chartmuseum
 
 ChartMuseum is an open-source **Helm Chart Repository** server written in Go (Golang), with support for cloud storage backends, including Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage, Alibaba Cloud OSS Storage, Openstack Object Storage, Oracle Cloud Infrastructure Object Storage, and Baidu Cloud BOS Storage.
 
 ---
 
-### 1. API
+### 1.1 API
 
 ##### Helm Chart Repository
 * `GET /index.yaml` - retrieved when you run helm repo add chartmuseum http://localhost:8080/
@@ -24,11 +24,11 @@ ChartMuseum is an open-source **Helm Chart Repository** server written in Go (Go
 * `GET /health` - returns 200 OK
 
 
-### 2. 然后安装
+### 1.2 然后安装
 
 参考 https://github.com/helm/chartmuseum/README.md
 
-##### 2.1 通过命令行
+##### 1.2.1 通过命令行
 
 Using with local filesystem storage
 
@@ -40,7 +40,7 @@ chartmuseum --debug --port=8080 \
   --storage-local-rootdir="./chartstorage"
 ```
 
-##### 2.2 通过 docker
+##### 1.2.2 通过 docker
 
 Example usage (local storage):
 
@@ -68,8 +68,12 @@ docker run --rm -it \
   chartmuseum/chartmuseum:latest
   ```
   
-##### 2.3 通过 Helm Chart
+##### 1.2.3 通过 Helm Chart
 
 ```
 helm install stable/chartmuseum
 ```
+
+## 2. helm serve
+
+请参考：[Helm 入门指南](https://mp.weixin.qq.com/s/f-sHjfIGh2ESm0ovtY8DSw)

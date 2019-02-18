@@ -47,11 +47,11 @@ spec:
       targetPort: 80
 ```
 
-① v1 是 Service 的 apiVersion。
-② 指明当前资源的类型为 Service。
-③ Service 的名字为 httpd-svc。
-④ selector 指明挑选那些 label 为 run: httpd 的 Pod 作为 Service 的后端。
-⑤ 将 Service 的 8080 端口映射到 Pod 的 80 端口，使用 TCP 协议。
+① v1 是 Service 的 apiVersion。  
+② 指明当前资源的类型为 Service。  
+③ Service 的名字为 httpd-svc。  
+④ selector 指明挑选那些 label 为 run: httpd 的 Pod 作为 Service 的后端。  
+⑤ 将 Service 的 8080 端口映射到 Pod 的 80 端口，使用 TCP 协议。  
 
 httpd-svc 分配到一个 CLUSTER-IP。可以通过该 IP 访问后端的 httpd Pod。
 
@@ -65,7 +65,7 @@ iptables/vps 将访问 Service 的流量转发到后端 Pod，而且使用类似
 
 ## 1.2 使用 DNS 访问 Service
 
-Cluster 中的 Pod 可以通过 <SERVICE_NAME>.<NAMESPACE_NAME> 访问 Service。
+Cluster 中的 Pod 可以通过 `<SERVICE_NAME>.<NAMESPACE_NAME>` 访问 Service。
 
 如果是同一个 NAMESPACE_NAME，还可以省略 NAMESPACE_NAME，直接使用 SERVICE_NAME 访问 Service。
 
@@ -75,12 +75,12 @@ Kubernetes 集群内部可以通过 Cluster IP 和 DNS 访问 Service，那么�
 
 除了 Cluster 内部可以访问 Service，很多情况我们也希望应用的 Service 能够暴露给 Cluster 外部。Kubernetes 提供了多种类型的 Service，默认是 ClusterIP。
 
-> ClusterIP 
+* ClusterIP 
 Service 通过 Cluster 内部的 IP 对外提供服务，只有 Cluster 内的节点和 Pod 可访问，这是默认的 Service 类型，前面实验中的 Service 都是 ClusterIP。
 
-> NodePort 
-Service 通过 Cluster 节点的静态端口对外提供服务。Cluster 外部可以通过 <NodeIP>:<NodePort> 访问 Service。
+* NodePort 
+Service 通过 Cluster 节点的静态端口对外提供服务。Cluster 外部可以通过 `<NodeIP>:<NodePort>` 访问 Service。
 
-> LoadBalancer 
+* LoadBalancer 
 Service 利用 cloud provider 特有的 load balancer 对外提供服务，cloud provider 负责将 load balancer 的流量导向 Service。目前支持的 cloud provider 有 GCP、AWS、Azur 等。
 

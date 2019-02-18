@@ -1,6 +1,6 @@
  # 目录
 
-> 1.语法基础  
+## 1.语法基础  
 * 关键字
 * 常量&变量
 * 内建类型
@@ -12,28 +12,28 @@
 * interface
 * 其它(import main & init 函数 类型断言 反射 godoc书写方法和生成)
 
-> 2.语言特性
+## 2.语言特性
 * 并发(goroutine channal)
 
-> 3.使用 go 工具链
+## 3.使用 go 工具链
 * go
 * goxx
 * golang.org-x-tools-cmd
 
-> 4.go 依赖管理
+## 4.go 依赖管理
 * dep
 * vgo
 
-> 5.标准库
+## 5.标准库
 * fmt
 * ...
 
-> 6.开发&测试&发布
+## 6.开发&测试&发布
 * 开发
 * 测试
 * 发布
 
-> 7.附录
+## 7.附录
 * github.com
 * golang.org/x
 
@@ -48,7 +48,9 @@ x.(xx.YY)
 x.(type)  
 x.(int)  
 
+---
+
 调试：
-https://github.com/derekparker/delve
-https://github.com/aarzilli/gdlv -- GUI frontend for Delve
-https://www.cnblogs.com/ficow/p/6785905.html  -- Golang 在mac上用VSCode开发、Delve调试
+* https://github.com/derekparker/delve
+* https://github.com/aarzilli/gdlv -- GUI frontend for Delve
+* https://www.cnblogs.com/ficow/p/6785905.html  -- Golang 在mac上用VSCode开发、Delve调试
