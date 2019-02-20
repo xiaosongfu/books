@@ -74,3 +74,54 @@ spec:
           serviceName: s2
           servicePort: 80
 ```
+
+---
+
+## 我的安装记录
+
+```
+[root@dockerapp ingress-test]# kubectl get ingresses
+NAME                   HOSTS   ADDRESS   PORTS   AGE
+ingress-test-ingress   *                 80      21h
+
+[root@dockerapp ingress-test]# kubectl describe ingress ingress-test-ingress
+Name:             ingress-test-ingress
+Namespace:        default
+Address:
+Default backend:  default-http-backend:80 (<none>)
+Rules:
+  Host  Path  Backends
+  ----  ----  --------
+  *
+        /ingress-test   ingress-test-service:80 (<none>)
+Annotations:
+  kubectl.kubernetes.io/last-applied-configuration:  {"apiVersion":"extensions/v1beta1","kind":"Ingress","metadata":{"annotations":{},"name":"ingress-test-ingress","namespace":"default"},"spec":{"rules":[{"http":{"paths":[{"backend":{"serviceName":"ingress-test-service","servicePort":80},"path":"/ingress-test"}]}}]}}
+
+Events:  <none>
+```
+
+
+```
+[root@dockerapp GZPowerExchangeCenterAppDev]# kubectl get ingresses
+NAME                   HOSTS   ADDRESS   PORTS   AGE
+gzpower-docs-ingress   *                 80      2m12s
+ingress-test-ingress   *                 80      21h
+
+[root@dockerapp GZPowerExchangeCenterAppDev]# kubectl describe ingress gzpower-docs-ingress
+Name:             gzpower-docs-ingress
+Namespace:        default
+Address:
+Default backend:  default-http-backend:80 (<none>)
+Rules:
+  Host  Path  Backends
+  ----  ----  --------
+  *
+        /gzpower-docs   gzpower-docs-service:80 (<none>)
+Annotations:
+  kubectl.kubernetes.io/last-applied-configuration:  {"apiVersion":"extensions/v1beta1","kind":"Ingress","metadata":{"annotations":{},"name":"gzpower-docs-ingress","namespace":"default"},"spec":{"rules":[{"http":{"paths":[{"backend":{"serviceName":"gzpower-docs-service","servicePort":80},"path":"/gzpower-docs"}]}}]}}
+
+Events:
+  Type    Reason  Age    From                      Message
+  ----    ------  ----   ----                      -------
+  Normal  CREATE  2m32s  nginx-ingress-controller  Ingress default/gzpower-docs-ingress
+```
