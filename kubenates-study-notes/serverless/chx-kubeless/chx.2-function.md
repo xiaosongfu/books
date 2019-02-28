@@ -1,39 +1,38 @@
-```
-[root@dockerapp ~]# kubectl get pods
-NAME                            READY   STATUS    RESTARTS   AGE
-gzpower-docs-6f6b964c76-6wdnr   1/1     Running   1          3d23h
-hello-65798c97b9-c2xcc          1/1     Running   1          3d23h
-
-[root@dockerapp ~]# kubectl get deployments
-NAME           READY   UP-TO-DATE   AVAILABLE   AGE
-gzpower-docs   1/1     1            1           9d
-hello          1/1     1            1           7d11h
-
-[root@dockerapp ~]# kubectl get services
-NAME           TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
-gzpower-docs   NodePort    10.101.65.152    <none>        3000:30173/TCP   9d
-hello          ClusterIP   10.111.185.120   <none>        8080/TCP         7d11h
-kubernetes     ClusterIP   10.96.0.1        <none>        443/TCP          14d
-[root@dockerapp ~]#
-```
----
-
-# 部署函数
+## 1. 部署函数
 
 ```
 kubeless function deploy hello --runtime python2.7 --from-file hello.py --handler hello.hello
 ```
 
-function 部署完毕后，kubeless 会在 kubernetes 中生成一个对应的 Deployment。
+function 部署完毕后，kubeless 会在 kubernetes 中生成一个对应的 Deployment 和 Service。
 
 ```
+[root@dockerapp ~]# kubectl get pods -o wide
+NAME                            READY   STATUS    RESTARTS   AGE     IP            NODE        NOMINATED NODE   READINESS GATES
+hello-65798c97b9-c2xcc          1/1     Running   1          3d23h   10.244.0.15   dockerapp   <none>           <none>
+
 [root@dockerapp ~]# kubectl get deployments
 NAME           READY   UP-TO-DATE   AVAILABLE   AGE
 hello          1/1     1            1           7d10h
 
-[root@dockerapp ~]# kubectl get pods -o wide
-NAME                            READY   STATUS    RESTARTS   AGE     IP            NODE        NOMINATED NODE   READINESS GATES
-hello-65798c97b9-c2xcc          1/1     Running   1          3d23h   10.244.0.15   dockerapp   <none>           <none>
+[root@dockerapp ~]# kubectl get services
+NAME                   TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+hello                  ClusterIP   10.111.185.120   <none>        8080/TCP   30d
+
+[root@dockerapp ~]# kubectl describe service hello
+Name:              hello
+Namespace:         default
+Labels:            created-by=kubeless
+                   function=hello
+Annotations:       <none>
+Selector:          created-by=kubeless,function=hello
+Type:              ClusterIP
+IP:                10.111.185.120
+Port:              http-function-port  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         10.244.0.15:8080
+Session Affinity:  None
+Events:            <none>
 
 [root@dockerapp ~]# kubectl describe deployment hello
 Name:                   hello

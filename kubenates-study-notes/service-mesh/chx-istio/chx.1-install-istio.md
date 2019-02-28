@@ -204,3 +204,12 @@ customresourcedefinition.apiextensions.k8s.io/instances.config.istio.io created
 customresourcedefinition.apiextensions.k8s.io/templates.config.istio.io created
 customresourcedefinition.apiextensions.k8s.io/handlers.config.istio.io created
 ```
+
+---
+
+参考：
+
+* [Kubernetes 实战教学，手把手教您在 K8s 集群上部署 Istio Mesh（一）](https://mp.weixin.qq.com/s/jX_OEylXumTeVKoaGnpKYw)
+* [Kubernetes 实战教学，手把手教您在 K8s 集群上部署 Istio Mesh（二）](https://mp.weixin.qq.com/s/aph9_loXHkK1vBP2842zzg)
+* []()
+* []()

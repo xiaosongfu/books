@@ -8,7 +8,7 @@
 
 在 [https://github.com/kubeless/kubeless/releases](https://github.com/kubeless/kubeless/releases) 页面获取下载链接：
 
-![](../images/chx1/kubeless-release.png)
+![](../../images/chx1/kubeless-release.png)
 
 ```
 $ wget https://github.com/kubeless/kubeless/releases/download/v1.0.1/kubeless_darwin-amd64.zip

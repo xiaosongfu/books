@@ -44,7 +44,7 @@ ui-59dbf498c-7gzct                             2/2     Running   0          2m30
 
 通过 `kubectl get services -n kubeless` 命令查询到 ui 的端口为 30598，通过 ip:port 即可访问：
 
-![](../images/chx/kubeless-ui.png)
+![](../../images/chx/kubeless-ui.png)
 
 ---
 
