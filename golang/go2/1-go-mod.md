@@ -1,18 +1,23 @@
 # mod 依赖管理
 
-## 相关概念
+## 1. 相关概念
 
 
-## 如何启用
+## 2. 如何启用
 
 
-## 日常使用
-
-
+## 3. 日常使用
 
 
 
----
+#### 3.x 使用 vendor 目录
+
+使用 `go mod vendor` 命令将依赖下载到 vendor 目录。
+
+构建时使用 `go build -mod=vendor` 命令来使用 vendor 目录下的依赖。
+
+
+## 4. API
 
 * `GET $GOPROXY/<module>/@v/list` - returns a list of all known versions of the given module, one per line.
 
@@ -22,8 +27,7 @@
 
 * `GET $GOPROXY/<module>/@v/<version>.zip` - returns the zip archive for that version of the given module.
 
----
-
+## 5. 命令
 
 ```
 fuxiaosongdeMac-mini:~ fuxiaosong$ go help mod

@@ -33,10 +33,11 @@
 ## 6. 包管理&工具
 ##### 6.1 包管理工具 - pub
 https://www.dartlang.org/tools/pub
-##### 6.x 代码格式 - dartfmt
-##### 6.x 定制静态检查 - dartanalyzer
-##### 6.x 文档生成 - dartdoc
-##### 6.x 转化成 JavaScript - dart2js
+##### 6.2 代码格式 - dartfmt
+##### 6.3 文档生成 - dartdoc
+##### 6.4 转化成 JavaScript - dart2js
+##### 6.5 定制静态检查 - dartanalyzer
+https://www.dartlang.org/tools/analyzer
 
 ## 7. 库
 ##### 7.1 使用库

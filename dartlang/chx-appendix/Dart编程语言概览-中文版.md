@@ -943,11 +943,20 @@ add <code class="highlighter-rouge">const</code> before the map literal:</p>
 
 <p>下面是示例演示了 runes、 16-bit code units、
 和 32-bit code points 之间的关系。
-点击运行按钮 <img alt="" src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png">
-查看 runes 结果。</p>
+点击运行按钮查看 runes 结果。</p>
 
-<iframe src="https://dartpad.dartlang.org/embed-inline.html?id=589bc5c95318696cefe5&amp;verticalRatio=65" width="100%" height="333px" style="border: 1px solid #ccc;">
-</iframe>
+```
+main() {
+  var clapping = '\u{1f44f}';
+  print(clapping);
+  print(clapping.codeUnits);
+  print(clapping.runes.toList());
+
+  Runes input = new Runes(
+      '\u2665  \u{1f605}  \u{1f60e}  \u{1f47b}  \u{1f596}  \u{1f44d}');
+  print(new String.fromCharCodes(input));
+}
+```
 
 <div class="alert alert-warning">
   <p><strong>提示：</strong>
@@ -1232,10 +1241,16 @@ list.forEach((item) {
   print('${list.indexOf(item)}: $item');
 });</pre>
 
-<p>点击运行按钮 <img alt="" src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png"> 执行代码。</p>
+<p>点击运行按钮执行代码。</p>
 
-<iframe src="https://dartpad.dartlang.org/embed-inline.html?id=5d70bc1889d055c7a18d35d77874af88&amp;verticalRatio=60" width="100%" height="250px" style="border: 1px solid #ccc;">
-</iframe>
+```
+void main() {
+  var list = ['apples', 'bananas', 'oranges'];
+  list.forEach((item) {
+    print('${list.indexOf(item)}: $item');
+  });
+}
+```
 
 <p>如果函数只有一条语句， 
 可以使用箭头简写。粘贴下面代码到 DartPad 中
@@ -2667,10 +2682,38 @@ Dart 自身的语法糖精简了这些代码：</p>
 在当前构造函数冒号 (<code class="highlighter-rouge">:</code>) 之后，函数体之前，声明调用父类构造函数。</p>
 
 <p>下面的示例中，Employee 类的构造函数调用了父类 Person 的命名构造函数。 
-点击运行按钮<img alt="" src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png"> 执行示例代码。</p>
+点击运行按钮执行示例代码。</p>
 
-<iframe src="https://dartpad.dartlang.org/embed-inline.html?id=e57aa06401e6618d4eb8&amp;verticalRatio=80" width="100%" height="500px" style="border: 1px solid #ccc;">
-</iframe>
+```
+class Person {
+  String firstName;
+
+  Person.fromJson(Map data) {
+    print('in Person');
+  }
+}
+
+class Employee extends Person {
+  // Person does not have a default constructor;
+  // you must call super.fromJson(data).
+  Employee.fromJson(Map data) : super.fromJson(data) {
+    print('in Employee');
+  }
+}
+
+main() {
+  var emp = new Employee.fromJson({});
+
+  // Prints:
+  // in Person
+  // in Employee
+  if (emp is Person) {
+    // Type check
+    emp.firstName = 'Bob';
+  }
+  (emp as Person).firstName = 'Bob';
+}
+```
 
 <p>由于父类的构造函数参数在构造函数执行之前执行，
 所以参数可以是一个表达式或者一个方法调用：</p>
@@ -2718,10 +2761,27 @@ Point.fromJson(Map&lt;String, num&gt; json)
 
 <p>使用初始化列表可以很方便的设置 final 字段。
 下面示例演示了，如何使用初始化列表初始化设置三个 final 字段。
-点击运行按钮 <img alt="" src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png"> 执行示例代码。</p>
+点击运行按钮执行示例代码。</p>
 
-<iframe src="https://dartpad.dartlang.org/embed-inline.html?id=7a9764702c0608711e08&amp;verticalRatio=85" width="100%" height="420px" style="border: 1px solid #ccc;">
-</iframe>
+```
+import 'dart:math';
+
+class Point {
+  final num x;
+  final num y;
+  final num distanceFromOrigin;
+
+  Point(x, y)
+      : x = x,
+        y = y,
+        distanceFromOrigin = sqrt(x * x + y * y);
+}
+
+main() {
+  var p = new Point(2, 3);
+  print(p.distanceFromOrigin);
+}
+```
 
 <h4 id="重定向构造函数">重定向构造函数</h4>
 
@@ -3830,10 +3890,19 @@ Dart 内置支持两种生成器函数：</p>
 
 <p>在下面的示例中，<code class="highlighter-rouge">WannabeFunction</code> 类定义了一个 call() 函数，
 函数接受三个字符串参数，函数体将三个字符串拼接，字符串间用空格分割，并在结尾附加了一个感叹号。
-单击运行按钮 <img alt="" src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png"> 执行代码。</p>
+单击运行按钮执行代码。</p>
 
-<iframe src="https://dartpad.dartlang.org/embed-inline.html?id=405379bacf30335f3aed&amp;verticalRatio=73" width="100%" height="240px" style="border: 1px solid #ccc;">
-</iframe>
+```
+class WannabeFunction {
+  call(String a, String b, String c) => '$a $b $c!';
+}
+
+main() {
+  var wf = new WannabeFunction();
+  var out = wf("Hi","there,","gang");
+  print('$out');
+}
+```
 
 <p>有关把类当做方法使用的更多信息，请参考
 <a href="/articles/language/emulating-functions">Emulating Functions in Dart</a> 。</p>

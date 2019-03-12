@@ -630,3 +630,4 @@ kubeadm reset
 
 * [使用 kubeadm 安装新版本 Kubernetes 1.13](https://mp.weixin.qq.com/s/vK6mOElXk_gYfW6lSsTZgA)
 * [kubeadm部署kubernetes 1.13.1集群](https://blog.csdn.net/networken/article/details/84991940)
+* [二进制部署Kubernetes v1.13.4 HA可选](https://zhangguanzhang.github.io/2019/03/03/kubernetes-1-13-4/)

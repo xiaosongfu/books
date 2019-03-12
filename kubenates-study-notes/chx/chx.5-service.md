@@ -69,6 +69,18 @@ Cluster 中的 Pod 可以通过 `<SERVICE_NAME>.<NAMESPACE_NAME>` 访问 Service
 
 如果是同一个 NAMESPACE_NAME，还可以省略 NAMESPACE_NAME，直接使用 SERVICE_NAME 访问 Service。
 
+---
+
+httpd-svc.default.svc.cluster.local 是 httpd-svc 的完整域名。
+
+```
+# 不同命名空间
+wget httpd-svc.default
+
+# 同一命名空间
+wget httpd-svc
+```
+
 # 2. 集群外访问 Service
 
 Kubernetes 集群内部可以通过 Cluster IP 和 DNS 访问 Service，那么集群外部如何访问呢？

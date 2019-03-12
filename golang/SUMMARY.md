@@ -22,11 +22,6 @@
 
 ## 4.go 依赖管理
 * dep
-* vgo
-
-## 5.标准库
-* fmt
-* ...
 
 ## 6.开发&测试&发布
 * 开发
@@ -36,6 +31,16 @@
 ## 7.附录
 * github.com
 * golang.org/x
+
+## x.appendix
+官网文档的翻译！！
+
+## x.other
+* wasm
+
+## go2
+* go mod
+* go general
 
 ---  
 
