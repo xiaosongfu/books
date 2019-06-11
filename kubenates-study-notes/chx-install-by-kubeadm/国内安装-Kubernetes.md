@@ -21,7 +21,6 @@ https://download.docker.com/linux/centos/docker-ce.repo
 http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 
-
 ### 2. 更换 kubernetes repo
 
 ```

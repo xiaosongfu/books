@@ -9,6 +9,14 @@ rustup 是系统级编程语言 Rust 的安装程序。
 
 rustup 从官方发布渠道安装 Rust，使您可以在 stable，beta 和 nightly 编译器之间轻松切换并保持更新。
 
+---
+
+* 1. 配置自动补全
+* 2. 命令
+
+
+---
+
 ## 1. 配置自动补全
 
 rustup 现在支持为 Bash，Fish 和 Zsh 的自动补全功能。有关完整详细信息，请参阅 `rustup help completions`。
@@ -28,13 +36,21 @@ $ rustup completions fish > ~/.config/fish/completions/rustup.fish
 
 ## 2. 命令
 
-### 2.x 
+### 2.x rustup update
 
 更新工具链：`rustup update stable`  `rustup update nightly`
 
 `rustup update` 默认是更新 stable
 
+### 2.x rustup component
+
+`rustup component add rustfmt`
+
+`rustup component add clippy`
+
 ### 2.x 
+
+### 2.x rustup install
 
 安装 nightly 版本的编译工具链：`rustup install nightly`
 

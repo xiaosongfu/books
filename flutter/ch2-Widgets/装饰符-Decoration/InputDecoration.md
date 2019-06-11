@@ -1,0 +1,93 @@
+## InputDecoration
+
+有两个构造方法：
+
+构造方法：
+
+```
+const InputDecoration({
+    this.icon,
+    this.labelText,
+    this.labelStyle,
+    this.helperText,
+    this.helperStyle,
+    this.hintText,
+    this.hintStyle,
+    this.hintMaxLines,
+    this.errorText,
+    this.errorStyle,
+    this.errorMaxLines,
+    this.hasFloatingPlaceholder = true,
+    this.isDense,
+    this.contentPadding,
+    this.prefixIcon,
+    this.prefix,
+    this.prefixText,
+    this.prefixStyle,
+    this.suffixIcon,
+    this.suffix,
+    this.suffixText,
+    this.suffixStyle,
+    this.counter,
+    this.counterText,
+    this.counterStyle,
+    this.filled,
+    this.fillColor,
+    this.errorBorder,
+    this.focusedBorder,
+    this.focusedErrorBorder,
+    this.disabledBorder,
+    this.enabledBorder,
+    this.border,
+    this.enabled = true,
+    this.semanticCounterText,
+    this.alignLabelWithHint,
+  }) : assert(enabled != null),
+       assert(!(prefix != null && prefixText != null), 'Declaring both prefix and prefixText is not supported.'),
+       assert(!(suffix != null && suffixText != null), 'Declaring both suffix and suffixText is not supported.'),
+       isCollapsed = false;
+```
+
+collapsed 命名构造方法：
+
+```
+const InputDecoration.collapsed({
+    @required this.hintText,
+    this.hasFloatingPlaceholder = true,
+    this.hintStyle,
+    this.filled = false,
+    this.fillColor,
+    this.border = InputBorder.none,
+    this.enabled = true,
+  }) : assert(enabled != null),
+       icon = null,
+       labelText = null,
+       labelStyle = null,
+       helperText = null,
+       helperStyle = null,
+       hintMaxLines = null,
+       errorText = null,
+       errorStyle = null,
+       errorMaxLines = null,
+       isDense = false,
+       contentPadding = EdgeInsets.zero,
+       isCollapsed = true,
+       prefixIcon = null,
+       prefix = null,
+       prefixText = null,
+       prefixStyle = null,
+       suffix = null,
+       suffixIcon = null,
+       suffixText = null,
+       suffixStyle = null,
+       counter = null,
+       counterText = null,
+       counterStyle = null,
+       errorBorder = null,
+       focusedBorder = null,
+       focusedErrorBorder = null,
+       disabledBorder = null,
+       enabledBorder = null,
+       semanticCounterText = null,
+       alignLabelWithHint = false;
+```

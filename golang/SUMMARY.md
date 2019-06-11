@@ -20,7 +20,7 @@
 * goxx
 * golang.org-x-tools-cmd
 
-## 4.go 依赖管理
+## 4.go 依赖管理 -->删除，不要了
 * dep
 
 ## 6.开发&测试&发布

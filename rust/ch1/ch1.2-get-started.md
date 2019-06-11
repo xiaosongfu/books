@@ -1,13 +1,23 @@
 # https://www.rust-lang.org/learn/get-started
 
-### 1. 生成一个新项目
+---
+
+* 1. 生成一个新项目
+* 2. 运行项目
+* 3. 添加依赖
+* 4. 一个小的 Rust 应用程序
+
+---
+
+## 1. 生成一个新项目
 
 `cargo new hello-rust` 这将生成一个名为 hello-rust 的新目录，其中包含以下文件：
 
 ```
-fuxiaosongdeMac-mini:rust fuxiaosong$ cargo new hello-rust
+$ cargo new hello-rust
      Created binary (application) `hello-rust` package
-fuxiaosongdeMac-mini:rust fuxiaosong$ tree hello-rust/
+
+$ tree hello-rust/
 hello-rust/
 ├── Cargo.toml
 └── src
@@ -26,10 +36,9 @@ authors = ["xiaosongfu <xiaosong.fu@outlook.com>"]
 edition = "2018"
 
 [dependencies]
-
 ```
 
-* `src / main.rs` 是我们编写应用程序代码的地方。
+* `src/main.rs` 是我们编写应用程序代码的地方。
 
 ```
 fn main() {
@@ -37,17 +46,17 @@ fn main() {
 }
 ```
 
-### 2. 运行项目
+## 2. 运行项目
 
 ```
-fuxiaosongdeMac-mini:hello-rust fuxiaosong$ cargo run
+$ cargo run
    Compiling hello-rust v0.1.0 (/Users/fuxiaosong/dev/project/rust/hello-rust)
     Finished dev [unoptimized + debuginfo] target(s) in 2.88s
      Running `target/debug/hello-rust`
 Hello, world!
 ```
 
-### 3. 添加依赖
+## 3. 添加依赖
 
 在 Rust 中，我们经常将 `packages` 称为 `crates`。
 
@@ -62,7 +71,7 @@ ferris-says = "0.1.1"
 
 您将看到运行此命令为我们创建了一个新文件 Cargo.lock。此文件是我们在本地使用的依赖项的确切版本的日志。
 
-### 4. 一个小的Rust应用程序
+## 4. 一个小的 Rust 应用程序
 
 现在让我们用新的依赖项编写一个小应用程序。在我们的 main.rs 中，添加以下代码：
 
@@ -83,7 +92,7 @@ fn main() {
 接着执行 `cargo run`，如果没有报错，可以看到如下输出：
 
 ```
-fuxiaosongdeMac-mini:hello-rust fuxiaosong$ cargo run
+$ cargo run
    Compiling hello-rust v0.1.0 (/Users/fuxiaosong/dev/project/rust/hello-rust)
     Finished dev [unoptimized + debuginfo] target(s) in 0.81s
      Running `target/debug/hello-rust`

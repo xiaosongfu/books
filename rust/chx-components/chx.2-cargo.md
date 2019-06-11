@@ -9,14 +9,14 @@
 * 打包并发布 package 到 cartes.io：`cargo publish`
 
 ```
-fuxiaosongdeMac-mini:~ fuxiaosong$ cargo --version
+$ cargo --version
 cargo 1.32.0 (8610973aa 2019-01-02)
 ```
 
 ---
 
 ```
-fuxiaosongdeMac-mini:~ fuxiaosong$ cargo
+$ cargo
 Rust's package manager
 
 USAGE:

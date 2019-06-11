@@ -1,7 +1,21 @@
+# https://www.rust-lang.org/tools/install
+
+---
+
+* 0. 设置国内代理
+  * 0.1 为 rustup 设置代理
+  * 0.2 为 cargo 设置代理
+* 1. 安装
+* 2. 升级
+* 3. 卸载
+
+---
 
 Rust 编译器的下载和安装方法在官网上有文档说明，点击官网上的 `Install` 链接可以查看。Rust 官方已经提供了预编译好的编译器供我们下载，支持 Windows 平台、Linux 平台以及 Mac 平台。但是一般我们不单独下载 Rust 的编译器，而是使用一个叫 `rustup` 的工具安装 Rust 相关的一整套工具链，包括编译器、标准库、cargo 等。使用这个工具，我们还可以轻易地更新版本、切换渠道、多工具链管理等。
 
 ## 0. 设置国内代理
+
+#### 0.1 为 rustup 设置代理
 
 为了提高访问速度，中国科技大学 Linux 用户协会（USTC LUG）提供了一个代理服务，官方网址：[Rust Toolchain 反向代理使用帮助](https://mirrors.ustc.edu.cn/help/rust-static.html)，建议设置好以下环境变量后再使用 rustup。编辑文件 `vi ~/.bash_profile`，并添加以下内容：
 
@@ -10,9 +24,12 @@ export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 ```
 
-环境变量 `RUSTUP_DIST_SERVER` 用于更新 `toolchain`，`RUSTUP_UPDATE_ROOT` 用于更新 `rustup`。
+* `RUSTUP_DIST_SERVER` 用于更新 `toolchain`
+* `RUSTUP_UPDATE_ROOT` 用于更新 `rustup`
 
-> 为 cargo 设置代理，参考：https://mirrors.ustc.edu.cn/help/crates.io-index.html
+#### 0.2 为 cargo 设置代理
+
+> 参考：https://mirrors.ustc.edu.cn/help/crates.io-index.html
 
 rust 官方工具链还提供了重要的包管理工具 `cargo`，我们可以通过这个工具轻松导入或者发布开源库。官方的管理仓库在 `https://crates.io/`。
 
@@ -49,7 +66,7 @@ rustc --version
 如果你看到像 `rustc 1.32.0 (9fda7c223 2019-01-16)`这样的东西，你就准备好了。如：
 
 ```
-fuxiaosongdeMac-mini:~ fuxiaosong$ rustc --version
+$ rustc --version
 rustc 1.32.0 (9fda7c223 2019-01-16)
 ```
 
@@ -67,10 +84,17 @@ rustc 1.32.0 (9fda7c223 2019-01-16)
 * rust-gdb 和 rust-lldb 是调试器
 * rls 是为编辑器准备的代码提示工具
 
+其中：
+
+```
+$ more ~/.cargo/env
+export PATH="$HOME/.cargo/bin:$PATH"
+```
+
 命令执行记录：
 
 ```
-fuxiaosongdeMac-mini:~ fuxiaosong$ curl https://sh.rustup.rs -sSf | sh
+$ curl https://sh.rustup.rs -sSf | sh
 info: downloading installer
 
 Welcome to Rust!
@@ -128,7 +152,6 @@ To get started you need Cargo's bin directory ($HOME/.cargo/bin) in your PATH
 environment variable. Next time you log in this will be done automatically.
 
 To configure your current shell run source $HOME/.cargo/env
-fuxiaosongdeMac-mini:~ fuxiaosong$
 ```
 
 ## 2. 升级

@@ -19,27 +19,18 @@
 
 ---
 
-### 1. 准备
+## 1. 准备
 
-0. 修改主机名（可选）并配置 hosts
+#### 1.1 修改主机名（可选）并配置 hosts
 
 > 修改主机名（可选）
 
-master节点：
-
 ```
+# master节点
 hostnamectl set-hostname k8s-master
-```
-
-node1节点：
-
-```
+# node1节点
 hostnamectl set-hostname k8s-node1
-```
-
-node2节点:
-
-```
+# node2节点
 hostnamectl set-hostname k8s-node2
 ```
 
@@ -53,21 +44,21 @@ cat >> /etc/hosts << EOF
 EOF
 ```
 
-1. 关闭防火墙： 
+#### 1.2 关闭防火墙
 
 ```
 systemctl stop firewalld && systemctl disable firewalld
 ```
 
-2. 禁用SELINUX：
+#### 1.3 禁用 SELINUX 
 
 ```
 sed -i 's/^SELINUX=enforcing$/SELINUX=disabled/' /etc/selinux/config && setenforce 0
 ```
 
-3. 关闭swap
+#### 1.4 关闭swap
 
-Kubernetes 1.8开始要求关闭系统的Swap交换分区，方法如下:
+Kubernetes 1.8 开始要求关闭系统的 Swap 交换分区，方法如下:
 
 ```
 swapoff -a
@@ -75,9 +66,11 @@ swapoff -a
 free -m
 ```
 
-4. Docker 防火墙规则
+> `swapoff -a && sed -i '/swap/d' /etc/fstab`
 
-Docker从1.13版本开始调整了默认的防火墙规则，禁用了iptables filter表中FOWARD链，这样会引起Kubernetes集群中跨Node的Pod无法通信，在各个Docker节点执行下面的命令：
+#### 1.5 Docker 防火墙规则
+
+Docker 从1.13版本开始调整了默认的防火墙规则，禁用了 iptables filter 表中 FOWARD 链，这样会引起 Kubernetes 集群中跨Node 的 Pod 无法通信，在各个 Docker 节点执行下面的命令：
 
 ```
 iptables -P FORWARD ACCEPT
@@ -85,7 +78,7 @@ iptables -P FORWARD ACCEPT
 iptables -nvL
 ```
 
-5. kube-proxy 开启 ipvs
+#### 1.6 kube-proxy 开启 ipvs
 
 Kubernetes 从 1.8 开始增加了 IPVS 支持，IPVS 相对 IPtables 效率会更高一些。使用 IPVS 模式需要安装 `ipvsadm`、`ipset` 工具包和加载 `ip_vs` 内核模块。
 
@@ -126,15 +119,14 @@ yum install -y ipset ipvsadm
 
 如果以上前提条件如果不满足，则即使 kube-proxy 的配置开启了 ipvs 模式，也会退回到 iptables 模式。
 
-
-### 2. 安装 docker
+## 2. 安装 docker
 
 Centos 系统上安装：[Get Docker CE for CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
 
 1. Install required packages. `yum-utils` provides the `yum-config-manager` utility, and `device-mapper-persistent-data` and `lvm2` are required by the `devicemapper` storage driver.
 
 ```
- yum install -y yum-utils \
+$ yum install -y yum-utils \
   device-mapper-persistent-data \
   lvm2
 ```
@@ -142,7 +134,7 @@ Centos 系统上安装：[Get Docker CE for CentOS](https://docs.docker.com/inst
 2. Use the following command to set up the `stable` repository. You always need the `stable` repository, even if you want to install builds from the `edge` or `test` repositories as well.
 
 ```
-yum-config-manager \
+$ yum-config-manager \
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
 ```
@@ -150,7 +142,7 @@ yum-config-manager \
 请将 repo 地址改为阿里云的地址：`https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo`
 
 ```
-yum-config-manager \
+$ yum-config-manager \
     --add-repo \
     https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
@@ -160,9 +152,9 @@ yum-config-manager \
 * 安装最新的版本：`yum install docker-ce`
 * 安装指定版本：`yum install docker-ce-<VERSION STRING>`
 
-> Kubernetes 1.12已经针对 Docker 的1.11.1, 1.12.1, 1.13.1, 17.03, 17.06, 17.09, 18.06等版本做了验证，需要注意 Kubernetes 1.12最低支持的 Docker 版本是1.11.1。Kubernetes 1.13对 Docker 的版本依赖方面没有变化。
+> Kubernetes 1.12 已经针对 Docker 的 1.11.1, 1.12.1, 1.13.1, 17.03, 17.06, 17.09, 18.06 等版本做了验证，需要注意 Kubernetes 1.12 最低支持的 Docker 版本是 1.11.1。Kubernetes 1.13 对 Docker 的版本依赖方面没有变化。
 
-接下来安装 Docker 18.06.1版本.
+接下来安装 Docker 18.06.1 版本.
 
 查看仓库中所有可用的版本:
 
@@ -172,7 +164,8 @@ $ yum list docker-ce --showduplicates | sort -r
 docker-ce.x86_64            18.06.1.ce-3.el7.centos             docker-ce-stable
 ```
 
-使用 `18.09.0.ce` 代替版本字符串即可：
+使用 `18.06.1.ce` 代替版本字符串即可：
+
 ```
 yum install -y docker-ce-18.06.1.ce
 ```
@@ -183,11 +176,11 @@ yum install -y docker-ce-18.06.1.ce
 systemctl enable docker && systemctl start docker
 ```
 
-### 3. 安装 kubeadm、kubectl、kubelet
+## 3. 安装 kubeadm、kubectl、kubelet
 
 1. 配置 kubernetes.repo 的源，由于官方源国内无法访问，这里使用阿里云yum源:
 
-> 官方源
+> 使用官方源：
 
 ```
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
@@ -201,7 +194,7 @@ gpgkey=gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://pack
 EOF
 ```
 
-> 阿里云源
+> 使用阿里云源：
 
 ```
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
@@ -219,7 +212,6 @@ EOF
 
 ```
 yum makecache fast
-
 yum install -y kubelet kubeadm kubectl
 ```
 
@@ -237,8 +229,8 @@ systemctl enable kubelet && systemctl start kubelet
 
 ```
 kubeadm init \
-    --apiserver-advertise-address=192.168.160.3 \
-    --kubernetes-version v1.13.2 \
+    --apiserver-advertise-address=192.168.160.39 \
+    --kubernetes-version v1.14.1 \
     --pod-network-cidr=10.244.0.0/16
 ```
 
@@ -246,16 +238,16 @@ kubeadm init \
 
 ```
 kubeadm init \
-    --apiserver-advertise-address=192.168.160.3 \
+    --apiserver-advertise-address=192.168.160.39 \
     --image-repository registry.aliyuncs.com/google_containers \
-    --kubernetes-version v1.13.2 \
+    --kubernetes-version v1.14.1 \
     --pod-network-cidr=10.244.0.0/16
 ```
 
 参数说明：
 * `--apiserver-advertise-address string` -> 指明用 Master 的哪个 interface 与 Cluster 的其他节点通信。如果 Master 有多个 interface，建议明确指定，如果不指定，kubeadm 会自动选择有默认网关的 interface。
 * `--image-repository string` -> Default: "k8s.gcr.io"，在1.13版本中新增的参数，指定从哪个仓库拉取镜像
-* `--kubernetes-version string` -> Default: "stable-1"，指定安装特定的版本，以关闭版本探测功能，在使用默认值 `stable-1` 的情况下，会到 `https://storage.googleapis.com/kubernetes-release/release/stable-1.txt` 获取最新的版本号，但该网页在国内不能访问。
+* `--kubernetes-version string` -> Default: "stable-1"，指定安装特定的版本，以关闭版本探测功能。在使用默认值 `stable-1` 的情况下，会到 `https://storage.googleapis.com/kubernetes-release/release/stable-1.txt` 获取最新的版本号，但该网页在国内不能访问。
 * `--pod-network-cidr string` -> 指定 Pod 网络的 IP 地址范围。如果设置了，控制平面将为每个 node 自动分配 CIDR 块。Kubernetes 支持多种网络方案，不同网络方案对 `--pod-network-cidr` 有自己的要求，这里设置为 `10.244.0.0/16` 是因为我们将使用 `flannel` 网络方案，必须设置成这个 CIDR。
 
 具体的每个参数请参考官方文档：[kubeadm init](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/)
@@ -355,9 +347,9 @@ ip link delete flannel.1
 rm -rf /var/lib/cni/
 ```
 
-默认情况下，出于安全考虑，不会调度 pod 到 master 节点，如果需要调度 pod 到 master 节点，可以执行如下命令： `kubectl taint nodes --all node-role.kubernetes.io/master-`，这个命令是将所有的 node 都设置为可以调度 pod 运行，也可以单独设置 master：`kubectl taint node dockerapp node-role.kubernetes.io/master-`
+默认情况下，出于安全考虑，不会调度 pod 到 master 节点，如果需要调度 pod 到 master 节点，可以执行如下命令： `kubectl taint nodes --all node-role.kubernetes.io/master-`，这个命令是将所有的 node 都设置为可以调度 pod 运行，也可以单独设置 master：`kubectl taint node nodeName node-role.kubernetes.io/master-`
 
-如果要恢复，不让调度 pod 到 master，可以执行如下命令： `kubectl taint node dockerapp node-role.kubernetes.io/master:NoSchedule`
+如果要恢复，不让调度 pod 到 master，可以执行如下命令： `kubectl taint node nodeName node-role.kubernetes.io/master:NoSchedule`
 
 ### 5. 配置 kubectl
 
@@ -498,7 +490,8 @@ kube-system   kube-scheduler-dockerapp            1/1     Running   0          4
 ```
 
 ### 7. kubeadm join
-根据 的日志，执行命令：
+
+根据 `kubeadm init` 最后的输出日志，执行命令：
 
 ```
 kubeadm join 192.168.160.3:6443 --token yqw9eu.ry6jz5lqu23m9qni --discovery-token-ca-cert-hash sha256:670438332180631b5e5472c3c263ee4ed9fd8b6a5c411f6468a4fb60c9fefe42

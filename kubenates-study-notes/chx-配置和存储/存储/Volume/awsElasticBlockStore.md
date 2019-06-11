@@ -1,0 +1,21 @@
+## awsElasticBlockStore 配置示例：
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-ebs
+spec:
+  containers:
+    - image: k8s.gcr.io/test-webserver
+      name: test-container
+      volumeMounts:
+        - mountPath: /test-ebs
+          name: test-volume
+  volumes:
+    - name: test-volume
+      # This AWS EBS volume must already exist.
+      awsElasticBlockStore:
+        volumeID: <volume-id>
+        fsType: ext4
+```

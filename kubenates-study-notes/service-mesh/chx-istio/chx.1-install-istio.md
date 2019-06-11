@@ -1,6 +1,18 @@
-Istio 会被安装到自己的 istio-system 命名空间，并且能够对所有其他命名空间的服务进行管理。
+* 1. 安装
+    * 选项1：安装 Istio 而不启用 sidecar 之间的双向 TLS 验证。
+    * 选项2：默认情况下安装 Istio，并强制在 sidecar 之间进行双向 TLS 身份验证
+    * 选项3：使用 Helm 渲染 Kubernetes 清单文件并使用 `kubectl` 进行部署
+    * 选项4：通过 Helm 和 Tiller 的 helm install 安装 Istio
+* 2. 验证安装
+* 3. 部署应用测试
+* 4. 卸载
+* 5. 执行命令记录
 
-命名空间为 istio-system 的 pod，其中包含许多组件，如用于监控的Grafana、Prometheus，用于服务查看的 ServiceGraph，以及 Istio 组件 citadel、mixer、pilot 等。
+---
+
+Istio 会被安装到自己的 `istio-system` 命名空间，并且能够对所有其他命名空间的服务进行管理。
+
+命名空间为 istio-system 的 pod，其中包含许多组件，如用于监控的 Grafana、Prometheus，用于服务查看的 ServiceGraph(已废弃，官方推荐 Kiali)，以及 Istio 组件 citadel、mixer、pilot 等。
 
 # 1. 安装
 
@@ -39,7 +51,7 @@ kubectl apply -f install/kubernetes/helm/istio/templates/crds.yaml
 > 参考：https://istio.io/zh/docs/setup/kubernetes/quick-start/  
 > 总结：建议使用 helm 安装。
 
-##### 选项1：安装 Istio 而不启用 sidecar 之间的双向 TLS 验证。
+##### 选项1：安装 Istio 而不启用 sidecar 之间的双向 TLS 验证
 
 安装 Istio 而不启用 sidecar 之间的双向 TLS 验证。对于现有应用程序的集群，使用 Istio sidecar 的服务需要能够与其他非 Istio Kubernetes 服务以及使用存活和就绪探针、headless 服务或 StatefulSets 的应用程序通信的应用程序选择此选项。
 
@@ -47,7 +59,7 @@ kubectl apply -f install/kubernetes/helm/istio/templates/crds.yaml
 $ kubectl apply -f install/kubernetes/istio-demo.yaml
 ```
 
-##### 选项2：默认情况下安装 Istio，并强制在 sidecar 之间进行双向 TLS 身份验证。
+##### 选项2：默认情况下安装 Istio，并强制在 sidecar 之间进行双向 TLS 身份验证
 
 默认情况下安装 Istio，并强制在 sidecar 之间进行双向 TLS 身份验证。仅在保证新部署的工作负载安装了 Istio sidecar 的新建的 Kubernetes 集群上使用此选项。
 

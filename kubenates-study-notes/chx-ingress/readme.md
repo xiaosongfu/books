@@ -1,4 +1,6 @@
-参考官网文档：https://kubernetes.io/docs/concepts/services-networking/ingress/
+参考官网文档：
+* https://kubernetes.io/docs/concepts/services-networking/ingress/
+* https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/
 
 # Ingress rules
 
