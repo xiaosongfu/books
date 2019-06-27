@@ -535,6 +535,13 @@ maven       NotReady   <none>   3s    v1.13.2
 qgw-live    NotReady   <none>   19s   v1.13.2
 ```
 
+> 如果 token 过期了，可以使用以下命令创建新的 token，并且将加入命令打印出来：
+
+```
+[root@cicd-server ~]# kubeadm token create --print-join-command
+kubeadm join 192.168.160.39:6443 --token xmsb6g.xb1ybyve2ig8xayq     --discovery-token-ca-cert-hash sha256:826c0e1e3ff2ab8f02403b787acd787b758b54d60aafec2df02679c81a980079
+```
+
 ### 8. 为 kube-proxy 开启 ipvs
 
 执行命令：

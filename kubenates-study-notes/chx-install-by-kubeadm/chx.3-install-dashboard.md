@@ -4,13 +4,24 @@ https://kubernetes.cn/docs/tasks/access-application-cluster/web-ui-dashboard/
 
 ---
 
+> 目录
+1. 下载 yaml 配置文件
+2. 修改 image
+3. 修改 Service 为 NodePort 类型
+4. 开始安装
+5. 查看安装结果
+
+---
+
+## 1. 下载 yaml 配置文件
+
 先下载 kubernetes-dashboard.yaml 文件，然后需要做一些修改。
 
 ```
 [root@dockerapp ~]# wget https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml
 ```
 
-### 1. 修改 image
+### 2. 修改 image
 
 修改 `image: k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1` 为阿里云的 images：`image: registry.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.10.1`
 
@@ -78,7 +89,7 @@ spec:
         args:
 ```
 
-### 2. 修改 Service 为 NodePort 类型
+### 3. 修改 Service 为 NodePort 类型
 
 Service 默认为 ClusterIP 类型，我们把它改为 NodePort 类型。
 
@@ -123,7 +134,7 @@ spec:
     k8s-app: kubernetes-dashboard
 ```
 
-### 3. 开始安装
+### 4. 开始安装
 
 ```
 [root@dockerapp ~]# kubectl create -f kubernetes-dashboard.yaml
@@ -136,7 +147,7 @@ deployment.apps/kubernetes-dashboard created
 service/kubernetes-dashboard created
 ```
 
-### 4. 查看安装结果
+### 5. 查看安装结果
 
 ```
 [root@dockerapp ~]# kubectl get pods -n kube-system

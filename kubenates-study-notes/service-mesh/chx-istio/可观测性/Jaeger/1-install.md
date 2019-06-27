@@ -34,6 +34,6 @@ docker run --rm -it \
 
 ---
 
-Take OpenTracing for a HotROD ride： https://medium.com/opentracing/take-opentracing-for-a-hotrod-ride-f6e3141f7941
+Take OpenTracing for a HotROD ride：https://medium.com/opentracing/take-opentracing-for-a-hotrod-ride-f6e3141f7941
 
 这篇文章讲了 HotROD 示例应用，应用运行起来之后怎么查看效果，怎么理解调用链等等。
