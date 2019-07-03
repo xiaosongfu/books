@@ -4,7 +4,7 @@
 
 > 方法一
 
-对于 Windows、Linux 和 macOS，都可以先下载 zip 压缩包，解压，然后将 kubeless 可执行文件复制到 /usr/local/bin/ 目录（Linux 和 macOS），或者将其目录添加到环境变量（Windows）。
+对于 Windows、Linux 和 macOS，都可以先下载 zip 压缩包，解压，然后将 kubeless 可执行文件复制到 `/usr/local/bin` 目录（Linux 和 macOS），或者将其目录添加到环境变量（Windows）。
 
 在 [https://github.com/kubeless/kubeless/releases](https://github.com/kubeless/kubeless/releases) 页面获取下载链接：
 
@@ -15,7 +15,7 @@ $ wget https://github.com/kubeless/kubeless/releases/download/v1.0.1/kubeless_da
 
 $ unzip kubeless_darwin-amd64.zip
 
-$ cp bundles/kubeless_$OS-amd64/kubeless /usr/local/bin/
+$ cp bundles/kubeless_darwin-amd64/kubeless /usr/local/bin/
 ```
 
 > 方法二
@@ -23,9 +23,10 @@ $ cp bundles/kubeless_$OS-amd64/kubeless /usr/local/bin/
 对于 Linux 和 macOS，可以使用如下命令直接安装最新的：
 
 ```
-# 获取最新的 release 版本号和当前 OS 的类型
+# 获取最新的 release 版本号
 $ export RELEASE=$(curl -s https://api.github.com/repos/kubeless/kubeless/releases/latest | grep tag_name | cut -d '"' -f 4)
 
+# 获取当前 OS 的类型
 $ export OS=$(uname -s| tr '[:upper:]' '[:lower:]')
 
 # 下载 zip 压缩包并解压，然后将 kubeless 可执行文件复制到 /usr/local/bin/ 目录
@@ -39,7 +40,7 @@ $ curl -OL https://github.com/kubeless/kubeless/releases/download/$RELEASE/kubel
 验证安装是否成功：
 
 ```
-uxiaosongdeMac-mini:~ fuxiaosong$ kubeless
+$ kubeless
 Serverless framework for Kubernetes
 
 Usage:
@@ -59,7 +60,6 @@ Flags:
   -h, --help   help for kubeless
 
 Use "kubeless [command] --help" for more information about a command.
-fuxiaosongdeMac-mini:~ fuxiaosong$
 ```
 
 ### 2. 在 kubernetes 集群中安装 kubeless
@@ -439,10 +439,6 @@ def hello(event, context):
 INFO[0000] Deploying function...
 INFO[0000] Function hello submitted for deployment
 INFO[0000] Check the deployment status executing 'kubeless function ls hello'
-[root@dockerapp kubeless-functions]# kubeless function list hello
-NAME 	NAMESPACE	HANDLER    	RUNTIME  	DEPENDENCIES	STATUS
-hello	default  	hello.hello	python2.7	            	1/1 READY
-[root@dockerapp kubeless-functions]#
 ```
 
 可以使用 `kubeless function list` 查看已经部署的 function：
@@ -455,7 +451,6 @@ hello	default  	hello.hello	python2.7	            	1/1 READY
 [root@dockerapp kubeless-functions]# kubectl get functions
 NAME    AGE
 hello   4m
-[root@dockerapp kubeless-functions]# 
 ```
 
 接着使用 `kubeless function call` 命令调用该 function：
@@ -463,7 +458,6 @@ hello   4m
 ```
 [root@dockerapp kubeless-functions]# kubeless function call hello --data 'Hello kubeless'
 Hello kubeless
-[root@dockerapp kubeless-functions]#
 ```
 
 最后使用 `kubeless function delete` 命令删除部署的 function：
@@ -472,7 +466,6 @@ Hello kubeless
 [root@dockerapp kubeless-functions]# kubeless function delete hello
 [root@dockerapp kubeless-functions]# kubeless function list
 NAME	NAMESPACE	HANDLER	RUNTIME	DEPENDENCIES	STATUS
-[root@dockerapp kubeless-functions]#
 ```
 
 ---

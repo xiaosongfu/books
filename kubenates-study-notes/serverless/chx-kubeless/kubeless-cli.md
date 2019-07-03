@@ -4,6 +4,7 @@
 
 
 ### 1. kubeless -h
+
 ```
 uxiaosongdeMac-mini:~ fuxiaosong$ kubeless
 Serverless framework for Kubernetes
@@ -25,9 +26,7 @@ Flags:
   -h, --help   help for kubeless
 
 Use "kubeless [command] --help" for more information about a command.
-fuxiaosongdeMac-mini:~ fuxiaosong$
 ```
-
 
 ### 2. kubeless function 命令
 
@@ -53,7 +52,6 @@ Flags:
   -h, --help   help for function
 
 Use "kubeless function [command] --help" for more information about a command.
-fuxiaosongdeMac-mini:~ fuxiaosong$
 ```
 
 ```
@@ -83,5 +81,4 @@ Flags:
       --schedule string            Specify schedule in cron format for scheduled function
       --secrets strings            Specify Secrets to be mounted to the functions container. For example: --secrets mySecret
       --timeout string             Maximum timeout (in seconds) for the function to complete its execution (default "180")
-fuxiaosongs-MacBook-Air:~ fuxiaosong$
 ```

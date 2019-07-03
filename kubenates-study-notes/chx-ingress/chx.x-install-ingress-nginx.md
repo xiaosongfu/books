@@ -31,9 +31,9 @@
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
 ```
 
-该配置文件主要是安装了 `nginx-ingress-controller` Deployment 已经它需要的 ConfigMap、Role 等资源。
+该配置文件主要是安装了 `nginx-ingress-controller` Deployment 以及它需要的 ConfigMap、Role、ClusterRole 等资源。
 
-安装好 Deployment 后根据不同平台安装相应的 Service。如 GCK、Azure 安装 Loadbalance 类型的 Service，裸机、自己搭建的平台则安装 NodePort 类型的 Service。
+安装好 Deployment 后根据不同平台安装相应的 Service。如 GCK、Azure 安装 Loadbalance 类型的 Service；裸机、自己搭建的平台则安装 NodePort 类型的 Service。
 
 ### 1.1.2 安装 Service
 

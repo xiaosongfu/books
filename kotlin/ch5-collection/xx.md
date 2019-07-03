@@ -2,6 +2,10 @@ listOf
 arrayOf
 mapOf
 
+
+
+---
+
 只读 list
 
 ```

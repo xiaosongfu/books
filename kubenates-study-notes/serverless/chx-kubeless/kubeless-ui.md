@@ -1,4 +1,3 @@
-
 https://github.com/kubeless/kubeless-ui
 
 #### 安装
@@ -39,7 +38,6 @@ ui-59dbf498c                             1         1         1       10h
 NAME                                           READY   STATUS    RESTARTS   AGE
 kubeless-controller-manager-7c7bcb8db4-fw7mq   3/3     Running   0          74m
 ui-59dbf498c-7gzct                             2/2     Running   0          2m30s
-[root@dockerapp ~]#
 ```
 
 通过 `kubectl get services -n kubeless` 命令查询到 ui 的端口为 30598，通过 ip:port 即可访问：
@@ -91,7 +89,6 @@ Events:
   Type    Reason             Age    From                   Message
   ----    ------             ----   ----                   -------
   Normal  ScalingReplicaSet  3m20s  deployment-controller  Scaled up replica set ui-59dbf498c to 1
-[root@dockerapp ~]#
 ```
 
 ```
@@ -110,7 +107,6 @@ Endpoints:                10.244.1.10:3000
 Session Affinity:         None
 External Traffic Policy:  Cluster
 Events:                   <none>
-[root@dockerapp ~]#
 ```
 
 ```
@@ -212,5 +208,4 @@ Node-Selectors:  <none>
 Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
                  node.kubernetes.io/unreachable:NoExecute for 300s
 Events:          <none>
-[root@dockerapp ~]#
 ```

@@ -8,6 +8,12 @@
 
 > 目录
 1. 准备
+  1.1 修改主机名（可选）并配置 hosts
+  1.2 关闭防火墙
+  1.3 禁用 SELINUX
+  1.4 关闭swap
+  1.5 Docker 防火墙规则
+  1.6 kube-proxy 开启 ipvs
 2. 安装 docker
 3. 安装 kubeadm、kubectl、kubelet
 4. kubeadm init
@@ -15,7 +21,7 @@
 6. 安装 pod 网络附加组件
 7. kubeadm join
 8. 为 kube-proxy 开启 ipvs
-9. 为 kube-proxy 开启 ipvs
+9. 重置安装
 
 ---
 
@@ -38,9 +44,9 @@ hostnamectl set-hostname k8s-node2
 
 ```
 cat >> /etc/hosts << EOF
-192.168.160.3 dockerapp
-192.168.160.5 qgw-live
-192.168.160.13 maven
+192.168.160.3 k8s-master
+192.168.160.5 k8s-node1
+192.168.160.13 k8s-node2
 EOF
 ```
 
@@ -111,7 +117,7 @@ EOF
 chmod 755 /etc/sysconfig/modules/ipvs.modules && bash /etc/sysconfig/modules/ipvs.modules && lsmod | grep -e ip_vs -e nf_conntrack_ipv4
 ```
 
-最后还需要确保各个节点上已经安装了 ipset 软件包，使用命令 `yum install ipset` 安装。 为了便于查看ipvs的代理规则，最好安装一下管理工具 ipvsadm，使用命令 `yum install ipvsadm` 安装。
+最后还需要确保各个节点上已经安装了 ipset 软件包，使用命令 `yum install ipset` 安装。 为了便于查看ipvs的代理规则，最好安装一下管理工具 ipvsadm，使用命令 `yum install ipvsadm` 安装：
 
 ```
 yum install -y ipset ipvsadm
@@ -246,8 +252,8 @@ kubeadm init \
 
 参数说明：
 * `--apiserver-advertise-address string` -> 指明用 Master 的哪个 interface 与 Cluster 的其他节点通信。如果 Master 有多个 interface，建议明确指定，如果不指定，kubeadm 会自动选择有默认网关的 interface。
-* `--image-repository string` -> Default: "k8s.gcr.io"，在1.13版本中新增的参数，指定从哪个仓库拉取镜像
-* `--kubernetes-version string` -> Default: "stable-1"，指定安装特定的版本，以关闭版本探测功能。在使用默认值 `stable-1` 的情况下，会到 `https://storage.googleapis.com/kubernetes-release/release/stable-1.txt` 获取最新的版本号，但该网页在国内不能访问。
+* `--image-repository string` -> 默认值: "k8s.gcr.io"，在1.13版本中新增的参数，指定从哪个仓库拉取镜像
+* `--kubernetes-version string` -> 默认值: "stable-1"，指定安装特定的版本，以关闭版本探测功能。在使用默认值 `stable-1` 的情况下，会到 `https://storage.googleapis.com/kubernetes-release/release/stable-1.txt` 获取最新的版本号，但该网页在国内不能访问。
 * `--pod-network-cidr string` -> 指定 Pod 网络的 IP 地址范围。如果设置了，控制平面将为每个 node 自动分配 CIDR 块。Kubernetes 支持多种网络方案，不同网络方案对 `--pod-network-cidr` 有自己的要求，这里设置为 `10.244.0.0/16` 是因为我们将使用 `flannel` 网络方案，必须设置成这个 CIDR。
 
 具体的每个参数请参考官方文档：[kubeadm init](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/)
@@ -332,8 +338,6 @@ You can now join any number of machines by running the following on each node
 as root:
 
   kubeadm join 192.168.160.3:6443 --token yqw9eu.ry6jz5lqu23m9qni --discovery-token-ca-cert-hash sha256:670438332180631b5e5472c3c263ee4ed9fd8b6a5c411f6468a4fb60c9fefe42
-
-[root@dockerapp ~]#
 ```
 
 集群初始化如果遇到问题，可以使用下面的命令进行清理：
@@ -379,10 +383,10 @@ kube is not in the sudoers file.  This incident will be reported.
 [kube@dockerapp root]$
 ```
 
-需要这些配置命令的原因是：Kubernetes 集群默认需要加密方式访问。所以，这几条命令，就是将刚刚部署生成的 Kubernetes 集群的安全配置文件，保存到当前用户的.kube 目录下，kubectl 默认会使用这个目录下的授权信息访问 Kubernetes 集群。
+需要这些配置命令的原因是：Kubernetes 集群默认需要加密方式访问。所以，这几条命令，就是将刚刚部署生成的 Kubernetes 集群的**安全配置文件**，保存到当前用户的 `.kube` 目录下，kubectl 默认会使用这个目录下的授权信息访问 Kubernetes 集群。
 如果不这么做的话，我们每次都需要通过 export KUBECONFIG 环境变量告诉 kubectl 这个安全配置文件的位置。
 
-配置完成后centos用户就可以使用 kubectl 命令管理集群了。
+配置完成后 centos 用户就可以使用 kubectl 命令管理集群了。
 
 > 查看集群状态
 
@@ -471,7 +475,6 @@ daemonset.extensions/kube-flannel-ds-arm64 created
 daemonset.extensions/kube-flannel-ds-arm created
 daemonset.extensions/kube-flannel-ds-ppc64le created
 daemonset.extensions/kube-flannel-ds-s390x created
-[root@dockerapp ~]#
 ```
 
 pod network 安装完成后，运行命令 `kubectl get pods --all-namespaces -o wide` 检查 CoreDNS pod 是否在运行，确认 CoreDNS pod 在正常运行后就可以添加 Node 节点了：
@@ -521,8 +524,6 @@ This node has joined the cluster:
 * The Kubelet was informed of the new secure connection details.
 
 Run 'kubectl get nodes' on the master to see this node join the cluster.
-
-[root@qgw-live ~]#
 ```
 
 在 master 上查看结果：
@@ -596,7 +597,7 @@ I0117 10:33:41.974143       1 controller_utils.go:1034] Caches are synced for se
 I0117 10:33:41.974144       1 controller_utils.go:1034] Caches are synced for endpoints config controller
 ```
 
-日志中打印出了 Using ipvs Proxier，说明 ipvs 模式已经开启。
+日志中打印出了 `Using ipvs Proxier`，说明 ipvs 模式已经开启。
 
 ### 9、重置安装
 

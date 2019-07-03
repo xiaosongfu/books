@@ -5,7 +5,7 @@ sealed class Foo
 sealed: 密封
 
 
-创建单例
+### 创建单例
 
 ```
 object Resource {

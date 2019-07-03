@@ -1,7 +1,11 @@
-* `gcr.io` --> `gcr.mirrors.ustc.edu.cn`
-* https://hub.docker.com/u/mirrorgooglecontainers （mirrorgooglecontainers/kube-scheduler:v1.13.2）
-* registry.aliyuncs.com/google_containers/kube-scheduler:v1.13.2
-* registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.12.3
+
+方式一： `gcr.io` --> `gcr.mirrors.ustc.edu.cn`
+
+方式二：https://hub.docker.com/u/mirrorgooglecontainers （mirrorgooglecontainers/kube-scheduler:v1.13.2）
+
+方式三：registry.aliyuncs.com/google_containers/kube-scheduler:v1.13.2
+
+方式四：registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.12.3
 
 ---
 

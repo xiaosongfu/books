@@ -10,7 +10,9 @@ function 部署完毕后，kubeless 会在 kubernetes 中生成一个对应的 D
 [root@dockerapp ~]# kubectl get pods -o wide
 NAME                            READY   STATUS    RESTARTS   AGE     IP            NODE        NOMINATED NODE   READINESS GATES
 hello-65798c97b9-c2xcc          1/1     Running   1          3d23h   10.244.0.15   dockerapp   <none>           <none>
+```
 
+```
 [root@dockerapp ~]# kubectl get deployments
 NAME           READY   UP-TO-DATE   AVAILABLE   AGE
 hello          1/1     1            1           7d10h
@@ -18,7 +20,9 @@ hello          1/1     1            1           7d10h
 [root@dockerapp ~]# kubectl get services
 NAME                   TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
 hello                  ClusterIP   10.111.185.120   <none>        8080/TCP   30d
+```
 
+```
 [root@dockerapp ~]# kubectl describe service hello
 Name:              hello
 Namespace:         default
@@ -33,7 +37,9 @@ TargetPort:        8080/TCP
 Endpoints:         10.244.0.15:8080
 Session Affinity:  None
 Events:            <none>
+```
 
+```
 [root@dockerapp ~]# kubectl describe deployment hello
 Name:                   hello
 Namespace:              default
@@ -98,7 +104,9 @@ Conditions:
 OldReplicaSets:  <none>
 NewReplicaSet:   hello-65798c97b9 (1/1 replicas created)
 Events:          <none>
+```
 
+```
 [root@dockerapp ~]# kubectl describe replicaset hello-65798c97b9
 Name:           hello-65798c97b9
 Namespace:      default

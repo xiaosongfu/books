@@ -1,3 +1,8 @@
+* http trigger
+* cronjob trigger
+
+---
+
 通过定义 trigger 将事件源与函数进行关联。
 
 kubeless 默认支持四种类型的 trigger：http、cronjob、kafka以及 nats。
@@ -32,22 +37,20 @@ $ kubeless trigger cronjob create hello --function hello --schedule '*/5 * * * *
 
 每5分钟调用一次。
 
-查看 hello cronjob 详情：
-
-```
-$ kubectl describe cronjob trigger-hello
-```
-
 ```
 [root@dockerapp ~]# kubeless trigger cronjob list
 NAME	NAMESPACE	SCHEDULE	FUNCTION NAME
+
 [root@dockerapp ~]# kubectl get cronjobs
 No resources found.
+
 [root@dockerapp ~]# kubeless trigger cronjob create hello --function hello --schedule '*/5 * * * *'
 INFO[0000] Cronjob trigger hello created in namespace default successfully!
+
 [root@dockerapp ~]# kubeless trigger cronjob list
 NAME 	NAMESPACE	SCHEDULE   	FUNCTION NAME
 hello	default  	*/5 * * * *	hello
+
 [root@dockerapp ~]# kubectl get cronjobs
 NAME            SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
 trigger-hello   */5 * * * *   False     0        <none>          17s

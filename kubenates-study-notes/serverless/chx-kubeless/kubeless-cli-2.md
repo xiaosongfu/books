@@ -12,4 +12,3 @@ $ kubeless function delete hello
 $ kubeless get-server-config
 
 ```
-
