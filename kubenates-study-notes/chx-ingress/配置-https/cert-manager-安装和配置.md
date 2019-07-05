@@ -19,6 +19,8 @@ Certificate   ：证书
 
 ---
 
+![](../../images/chx-ingress/cert-manager-overview.png)
+
 ## 1. 安装 cert-manager
 
 > 参考：[Installing cert-manager](https://docs.cert-manager.io/en/latest/getting-started/install.html)
