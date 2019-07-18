@@ -2,6 +2,9 @@
 
 ```
 $ flutter doctor
+
+# 同意所有 Android 许可证
+$ flutter doctor --android-licenses
 ```
 
 ## 2. x
