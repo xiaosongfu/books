@@ -48,4 +48,22 @@ ints.filter { it > 0 } // 这个字面值是“(it: Int) -> Boolean”类型的
 map.forEach { _, value -> println("$value!") }
 ```
 
-##
+## 从 lambda 表达式中返回一个值
+
+我们可以使用限定的返回语法从 lambda 显式返回一个值。 否则，将隐式返回最后一个表达式的值。
+
+因此，以下两个片段是等价的：
+
+```
+ints.filter {
+    val shouldFilter = it > 0 
+    shouldFilter
+}
+
+ints.filter {
+    val shouldFilter = it > 0 
+    return@filter shouldFilter
+}
+```
+
+> 一个不带标签的 return 语句总是在用 fun 关键字声明的函数中返回。这意味着 lambda 表达式中的 return 将从包含它的函数返回，而匿名函数中的 return 将从匿名函数自身返回。
