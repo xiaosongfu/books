@@ -79,16 +79,18 @@ func TestSomething(t *testing.T) {
 
 ## 著名的表格驱动测试
 
+`tests tt want got`
+
 ```
 func TestReverse(t *testing.T) {
-	cases := []struct {
+	tests := []struct {
 		in, want string
 	}{
 		{"Hello, world", "dlrow ,olleH"},
 		{"Hello, 世界", "界世 ,olleH"},
 		{"", ""},
 	}
-	for _, tt := range cases {
+	for _, tt := range tests {
 		got := Reverse(tt.in)
 		if got != tt.want {
 			t.Errorf("Reverse(%q) == %q, want %q", tt.in, got, c.want)
@@ -200,10 +202,10 @@ ok      _/Users/fuxiaosong/dev/project/go/go.xiaosongfu.com/govideocourse       
 
 下面的示例演示了在 TestMain(m *testing.M) 方法中先打开数据库连，然后清空表，然后执行其他测试方法，当测试方法都执行完成后再清空数据库并关闭数据库连接。
 
-> !! `before ....` 和 `after ....` 分别在 `TestAllInFlow(t *testing.T)` 方法前后打印。
-
 ```
 func TestMain(m *testing.M) {
+
+    // 打开数据库连接
 	database.OpenDBConnection()
 	database.TestDBConnection()
 
@@ -216,6 +218,9 @@ func TestMain(m *testing.M) {
 
 	// 需要清空数据库
 	truncateReposTable()
+
+    // 关闭数据库连接
+	database.CloseDBConnection()
 }
 
 func truncateReposTable() { //... }
@@ -234,3 +239,5 @@ PASS
 after ....
 ok      go.xiaosongfu.com/releasebus/releasebus 1.153s
 ```
+
+> !! `before ....` 和 `after ....` 分别在 `TestAllInFlow(t *testing.T)` 方法前后打印。

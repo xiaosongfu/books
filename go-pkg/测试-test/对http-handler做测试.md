@@ -17,7 +17,7 @@
 
 首先使用 `func httptest.NewRequest(method, target string, body io.Reader) *http.Request` 准备一个 *http.Request。
 
-然后使用 `func NewRecorder() *ResponseRecorder` 准备一个 *ResponseRecorder。
+然后使用 `func httptest.NewRecorder() *ResponseRecorder` 准备一个 *ResponseRecorder。
 
 最后将这两个参数传传递给 handlerFunc，即可通过 *ResponseRecorder 来处理结果了。
 
@@ -38,9 +38,11 @@ fmt.Println(string(body))
 
 ## 方法二：启动一个 net/http/httptest.Server 来做测试
 
-使用 `httptest.NewServer(handler http.Handler) *Server` 方法**创建并启动**一个服务器，如果只是创建不启动，可以使用 `httptest.NewUnstartedServer(handler http.Handler) *Server` 方法，使用该方法启动服务器之后记得需要调用 Close 方法关闭服务器。
+使用 `httptest.NewServer(handler http.Handler) *Server` 方法**创建并启动**一个服务器，如果只是创建不启动，可以使用 `httptest.NewUnstartedServer(handler http.Handler) *Server` 方法
 
-net/http/httptest.Server 的 Client() 方法返回一个 *http.Client 类型，使用这个 http.Client 即可完成 http 请求。 
+启动服务器之后记得需要调用 Close 方法关闭服务器。
+
+net/http/httptest.Server 的 Client() 方法返回一个 *http.Client 类型，使用这个 http.Client 即可完成 http 请求。
 
 net/http/httptest.Server 的 URL 属性即为 Server 的地址，如：`http://127.0.0.1:51733`，所以如果不是用的 http 内置的 router，比如用的 `github.com/julienschmidt/httprouter` 路由的话，记得需要拼接上路径。
 

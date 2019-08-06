@@ -26,6 +26,7 @@ func (e *ExpectedExec) WillReturnResult(result driver.Result) *ExpectedExec
 func (e *ExpectedExec) WillReturnError(err error) *ExpectedExec
 
 func (e *ExpectedQuery) WillReturnRows(rows ...*Rows) *ExpectedQuery
+
 // 已废弃!!
 func (e *ExpectedQuery) WillReturnRows(rows *Rows) *ExpectedQuery
 ```
@@ -54,7 +55,6 @@ type Sqlmock interface {
 	NewRows(columns []string) *Rows
 }
 ```
-
 
 ```
 type Argument interface {

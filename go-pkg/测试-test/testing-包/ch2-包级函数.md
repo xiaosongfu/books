@@ -12,7 +12,7 @@
 
 ## Skip() Skipf() SkipNow() Skiped()
 
-* SkipNow() : 标记当前测试已经被跳过，并调用 runtime.Goexit() 来停止执行
+* SkipNow() : 标记当前测试已经被跳过，并且测试结果为 PASS，然后继续执行下一个测试
 * Skip() 和 SKipf() : 都是打印一条 log 后执行 SkipNow()
 * Skiped() : 返回当前测试是否被跳过了
 
