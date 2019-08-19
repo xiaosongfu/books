@@ -13,7 +13,7 @@
 
 ---
 
-智能转换
+智能类型转换
 
 幕后字段
 
@@ -32,4 +32,10 @@
 其他运算符
 
 ---
+
+MyClass::class
+
+MyClass::myProtery
+
+this@MyClass
 

@@ -1,0 +1,1 @@
+2019 Google I/O 大会，官方在 `Pragmatic State Management in Flutter (Google I/O'19)` 主题演讲上正式介绍了 Provider 。自此，Provider 代替 Provide 成为官方推荐的状态管理方式之一。 
