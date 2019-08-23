@@ -24,6 +24,9 @@ GopherCon 2018 - Demystifying Binary Search Tree Algorithms - https://about.sour
 
 ---
 
+!!! https://github.com/guanguans/design-patterns-for-humans-cn
+Design patterns for humans 中文版
+
 https://github.com/wxyyxc1992/SoftwareEngineering-Series
 软件工程基础：数据结构与算法、设计模式、软件架构、协同开发、质量保障 QA 
 
