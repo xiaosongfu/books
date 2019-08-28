@@ -71,3 +71,6 @@ if err == nil {
 }
 ```
 
+---
+
+使用 Go、Postgresql、JWT 和 GORM 搭建安全的 REST API : https://mp.weixin.qq.com/s/OZffOjbbA9m57ILXyqyWOw

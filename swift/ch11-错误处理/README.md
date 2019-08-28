@@ -1,3 +1,5 @@
+## throw 和 throws
+
 使用 throw 来抛出一个错误和使用 throws 来表示一个可以抛出错误的函数。
 
 ```

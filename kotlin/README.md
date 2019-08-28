@@ -33,6 +33,13 @@
 
 ---
 
+* ..(闭区间)
+* until(左闭右开)
+* downTo
+* step
+
+---
+
 MyClass::class
 
 MyClass::myProtery
