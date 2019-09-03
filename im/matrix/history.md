@@ -8,8 +8,19 @@
 
 ## 2019年6月
 
-截至2019年6月，Matrix 已结束 beta 测试，该协议完全适合生产环境使用。
+截至2019年6月，Matrix 已结束 beta 测试，该协议完全适合生产环境使用。(As of June 2019, Matrix is out of beta, and the protocol is fully suitable for production usage.)
 
-As of June 2019, Matrix is out of beta, and the protocol is fully suitable for production usage.
+Matrix 1.0（2019年6月10日发布）包含以下最低API版本：
+
+```
+API/Specification       	Version
+
+Client-Server API	        r0.5.0
+Server-Server API	        r0.1.2
+Application Service API 	r0.1.1
+Identity Service API    	r0.1.1
+Push Gateway API	        r0.1.0
+Room Version	            v5
+```
 
 ## 

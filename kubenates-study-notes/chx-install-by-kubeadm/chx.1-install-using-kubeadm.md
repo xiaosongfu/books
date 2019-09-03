@@ -214,6 +214,8 @@ gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors
 EOF
 ```
 
+> 使用华为云源：https://mirrors.huaweicloud.com/
+
 2. 开始安装
 
 ```

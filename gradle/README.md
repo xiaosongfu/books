@@ -10,8 +10,6 @@ gradle 版本历史：https://gradle.org/releases/
 
 Android Gradle plugin 版本历史：https://developer.android.google.cn/studio/releases/gradle-plugin
 
----
-
 gradle 和 android gradle plugin 版本对应关系：https://developer.android.google.cn/studio/releases/gradle-plugin
 
 ---
