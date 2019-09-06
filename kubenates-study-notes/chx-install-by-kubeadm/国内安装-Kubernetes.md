@@ -1,5 +1,9 @@
+参考：
+* Docker / Kubernetes 镜像源不可用，教你几招搞定它！ https://mp.weixin.qq.com/s/6Xca3KpO1jqRxGxIjMxfpg
 
-方式一： `gcr.io` --> `gcr.mirrors.ustc.edu.cn`
+---
+
+方式一： `gcr.io` --> `gcr.mirrors.ustc.edu.cn` || `gcr.io` --> `gcr.azk8s.cn`
 
 方式二：https://hub.docker.com/u/mirrorgooglecontainers （mirrorgooglecontainers/kube-scheduler:v1.13.2）
 
