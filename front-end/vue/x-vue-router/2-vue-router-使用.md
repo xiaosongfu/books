@@ -52,56 +52,57 @@ Vue.component('RouterLink', Link);
 
 ```
 <div id="app">
-        <router-link to="/login">登录</router-link>
-        <router-link to="/register">注册</router-link>
+    <router-link to="/login">登录</router-link>
+    <router-link to="/register">注册</router-link>
 
-        <router-view></router-view>
-    </div>
+    <router-view></router-view>
+</div>
 
-    <script src="./vue.js"></script>
-    <script src="./vue-router.js"></script>
+<script src="./vue.js"></script>
+<script src="./vue-router.js"></script>
 
-    <script>
-        
-        // Vue.use(VueRouter)
+<script>
+    
+    // Vue.use(VueRouter)
 
-        var Login = {
-            template: `<div><h2>登录界面</h2></div>`,
-            mounted() {
-                console.log("Login mounted")
+    var Login = {
+        template: `<div><h2>登录界面</h2></div>`,
+        mounted() {
+            console.log("Login mounted")
+        },
+    }
+
+    var Register = {
+        template: `<div><h2>注册界面</h2></div>`
+    }
+
+    var router = new VueRouter({
+        routes: [
+            {
+                path: "/login",
+                component: Login
             },
-        }
+            {
+                path: "/register",
+                component: Register
+            }
+        ]   
+    })
 
-        var Register = {
-            template: `<div><h2>注册界面</h2></div>`
-        }
-
-        var router = new VueRouter({
-            routes: [
-                {
-                    path: "/login",
-                    component: Login
-                },
-                {
-                    path: "/register",
-                    component: Register
-                }
-            ]   
-        })
-
-        var vm = new Vue({
-            el: "#app",
-            components: {
-                Login,
-                Register
-            },
-            router,
-            mounted() {
-                console.log("vm mounted")
-            },
-        })
-    </script>
+    var vm = new Vue({
+        el: "#app",
+        components: {
+            Login,
+            Register
+        },
+        router,
+        mounted() {
+            console.log("vm mounted")
+        },
+    })
+</script>
 ```
+
 > 组件的定义：var Login = {template: ``} 一定要在 var router = new VueRouter({}) 之前!!
 
 ## 命名路由

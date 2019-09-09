@@ -1,0 +1,9 @@
+$ vue -V
+2.9.3
+
+
+
+vue-cli2.0 运行命令 npm run dev
+vue-cli3.0 运行命令 npm run serve
+
+vue-cli3.0 要自己在项目根目录下配置 vue-config.js
