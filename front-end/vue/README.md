@@ -1,3 +1,23 @@
+## Vue 对象的属性
+
+this.$emit()
+
+this.$refs.xx
+
+this.$router : 路由器
+this.$route  : 当前路由
+    this.$route.query
+    this.$route.params
+
+
+## 全局xx
+
+Vue.conpoment("", {})
+
+Vue.filter("", function(value){})
+
+
+
 
 
 ## 常见的报错：组件模板只能有一个明确的根元素-Component template should contain exactly one root element

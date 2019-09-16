@@ -3,9 +3,8 @@
 1. 引入 vue
 2. 引入 vue-router
 3. 让 Vue 使用 VueRouter
-4. 创建 router 对象
-5. 配置路由规则
-6. 挂载 router 到 vue 实例中
+4. 创建 router 对象并配置路由规则
+5. 挂载 router 到 vue 实例中
 
 ```
 <script src="./vue.js"></script>
@@ -30,13 +29,15 @@
 
     var vm = new Vue({
         el: "#app",
-        router
+        router // 一定记得要挂载到 Vue 实例上
     })
 
 </script>
 ```
 
-引入 vue-router 模块后，我们会得到 vue-router 提供的两个全局的组件： <router-link> 和 <router-view>。
+## <router-link> 和 <router-view> 组件
+
+引入 vue-router 模块后，我们会得到 vue-router 提供的两个全局的组件：<router-link> 和 <router-view>。
 
 * <router-link> 会渲染成 a 标签，它有一个 to 属性，对应 a 标签的 href 属性
 * <router-view> 是路由匹配组件的出口
@@ -103,7 +104,7 @@ Vue.component('RouterLink', Link);
 </script>
 ```
 
-> 组件的定义：var Login = {template: ``} 一定要在 var router = new VueRouter({}) 之前!!
+> 组件的定义：`var Login = {template: ``}` 一定要在路由定义 `var router = new VueRouter({})` 之前!!
 
 ## 命名路由
 

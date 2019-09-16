@@ -18,8 +18,8 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
 ## 2. 常用命令
 
-列出全部可以安装的版本号: `nvm ls-remote` 或 `nvm ls-remote --lts`，运行命令后，稍等一会，就会列出全部可以安装的版本号  
-
+列出全部可以安装的版本号: `nvm ls-remote` 或 `nvm ls-remote --lts`，运行命令后，稍等一会，就会列出全部可以安装的版本号
+ 
 安装指定版本: `nvm install v7.9.0`
 
 卸载指定版本: `nvm uninstall v7.9.0`

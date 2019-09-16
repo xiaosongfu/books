@@ -19,7 +19,7 @@
     var vm = new Vue({
         el: "#app",
         mounted() {
-            console.log(this.$refs.btn.outerHTM)
+            console.log(this.$refs.btn.outerHTML)
             console.log(this.$refs.sub)  
         },
         components: {
@@ -37,4 +37,4 @@
 Object { _uid: 1, _isVue: true, "$options": {…}, _renderProxy: Proxy, _self: {…}, "$parent": {…}, "$root": {…}, "$children": [], "$refs": {}, _watcher: {…}, … }
 ```
 
-> this.$refs.sub 使用一个 Vue 组件，可以看到它有 $parent、$root 等属性
+> this.$refs.sub 是一个 Vue 组件，可以看到它有 $parent、$root 等属性

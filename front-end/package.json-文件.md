@@ -20,11 +20,8 @@ package.json 中包含各种所需模块以及项目的配置信息（名称、�
 
 ```
 {   
-
     name: "myApp",
-
     version :"0.0.1" 
-
 }
 ```
 
@@ -32,7 +29,6 @@ package.json 中包含各种所需模块以及项目的配置信息（名称、�
 
 ```
 {
-
 	"name": "myApp",
 	"version": "0.0.0",
 	"author" : "simple",
@@ -42,17 +38,13 @@ package.json 中包含各种所需模块以及项目的配置信息（名称、�
 		"type" :"git",
 		"url" :"http://path/to/url"
 	},
-
 	"bugs" : {
 		"url" : "http://path/to/bug",
 		"email" : "bug@example.com"
 	},
 	"contributors" : [
-
-	{"name" : "zhangsan", "email" : "zhangsan@example.com"
- 
+		{"name" : "zhangsan", "email" : "zhangsan@example.com"
 	]
-
 	"license" : "MIT",
 	"engines" : { "node" : "0.10.x"},
 	"script" : {
@@ -62,7 +54,6 @@ package.json 中包含各种所需模块以及项目的配置信息（名称、�
 	"scripts": {
 	"start": "node ./bin/www"
 	},
-
 	"dependencies": {
 		"express": "~4.9.0",
 		"body-parser": "~1.8.1",
@@ -72,8 +63,6 @@ package.json 中包含各种所需模块以及项目的配置信息（名称、�
 	   "debug": "~2.0.0",
 		"jade": "~1.6.0"
 	},
-
-
 	"devDependencies": {
 		"bower" : "~1.2.8",
 		"grunt" : "~0.4.1",
