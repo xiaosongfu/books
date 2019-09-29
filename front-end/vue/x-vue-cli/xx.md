@@ -1,9 +1,18 @@
-$ vue -V
-2.9.3
+@vue/cli
+
+@vue/cli-init
+
+@vue/cli-service
+@vue/cli-service-global
 
 
 
-vue-cli2.0 运行命令 npm run dev
-vue-cli3.0 运行命令 npm run serve
 
-vue-cli3.0 要自己在项目根目录下配置 vue-config.js
+vue-cli-plugin-babel
+    @vue/cli-plugin-babel
+    @vue/babel
+    @vue/babel-preset-app
+
+vue-cli-plugin-typescript
+    @vue/cli-plugin-typescript
+    @vue/typescript

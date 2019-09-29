@@ -29,6 +29,7 @@ vue-template-compiler
 
 vue-style-loader
 
+
 ---
 
 babel-core

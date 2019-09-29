@@ -14,3 +14,8 @@ https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.cn.md
 ```
 npm install --save-dev @types/jquery
 ```
+
+---
+
+
+@types/axios
