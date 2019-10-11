@@ -1,5 +1,9 @@
 ## 1
 
+类选择器
+id 选择器
+标签选择器
+
 .class
 #id
 *
@@ -7,15 +11,21 @@ element 如：p
 
 element.class
 element#id
+element[attribute]
 
 ## 2
+
+选择器的分组
+派生选择器
 
 element,element 如：div,p -> 选择所有 <div> 元素和所有 <p> 元素
 element element 如：div p -> 选择 <div> 元素内部的所有 <p> 元素
 element>element 如：div>p -> 选择父元素为 <div> 元素的所有 <p> 元素
 element+element 如：div+p -> 选择紧接在 <div> 元素之后的所有 <p> 元素
 
-## 3
+## 3 属性选择器
+
+属性选择器
 
 [attribute] 如：[target] -> 选择带有 target 属性所有元素
 [attribute=value] 如：[target=_blank] -> 选择 target="_blank" 的所有元素

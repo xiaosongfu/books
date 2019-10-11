@@ -3,9 +3,6 @@ webpack
 webpack-cli
 webpack-dev-server
 
-html-webpack-plugin
-commons-chunk-webpack-plugin
-
 ---
 
 less-loader
