@@ -1,0 +1,10 @@
+属性	描述	CSS
+background	在一个声明中设置所有的背景属性。	1
+background-attachment	设置背景图像是否固定或者随着页面的其余部分滚动。	1
+background-color	设置元素的背景颜色。	1
+background-image	设置元素的背景图像。	1
+background-position	设置背景图像的开始位置。	1
+background-repeat	设置是否及如何重复背景图像。	1
+background-clip	规定背景的绘制区域。	3
+background-origin	规定背景图片的定位区域。	3
+background-size	规定背景图片的尺寸。	3
