@@ -47,6 +47,7 @@
             },
             {
                 path: "/login",
+                name: "Login"
                 component: Login
             }
         ]
@@ -65,6 +66,7 @@
                 next({
                     path: "/login"
                 })
+                // 或者 next("/login")
             }
         } else {
             next()
@@ -82,4 +84,21 @@
     })
 
 </script>
+```
+
+---
+
+```
+// 字符串
+next('/user') // 默认为 path
+
+// 对象
+next({ path: '/user' }) // 使用 path
+next({ name: 'user' }) // 使用 name
+
+// 命名的路由
+next({ name: 'user', params: { userId: '123' }})
+
+// 带查询参数
+next({ name: 'register', query: { plan: 'private' }})
 ```

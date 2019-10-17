@@ -37,7 +37,7 @@ console.log(a); // 1
 console.log(b); // 7
 ```
 
-通过解构赋值可以方便的交换两个变量的值。
+## 通过解构赋值可以方便的交换两个变量的值。
 
 ```
 var a = 1;
@@ -62,3 +62,20 @@ console.log(name); // "Ming"
 console.log(age); // "18"
 console.log(city); // "Shanghai"
 ```
+
+## 重命名
+
+```
+const student = {
+  name:'Ming',
+  age:'18',
+  city:'Shanghai'
+};
+
+const {name: MyName,age: MyAge,city: MyCity} = student;
+console.log(MyName); // "Ming"
+console.log(MyAge); // "18"
+console.log(MyCity); // "Shanghai"
+```
+
+一定要注意是：`newName: key`，对象的属性名称在前，新的变量名称在后面！！！
