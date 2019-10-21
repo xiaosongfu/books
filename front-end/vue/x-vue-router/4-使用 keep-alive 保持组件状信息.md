@@ -101,4 +101,14 @@ Hot destroyed
 
 显而易见， Hot 界面的 Hot 文字的颜色每次切换都会变为默认的黑色。
 
-当使用 <keep-alive> 包裹后， Home 和 Hot 都只会被创建一次，且 Hot 的文本颜色会保持不变。
+当使用 <keep-alive> 包裹后， Home 和 Hot 都只会被创建一次，且 Hot 的文本颜色会保持不变，反复切换时控制台的输出如下：
+
+```
+Home created 
+// --> 点击切换到 Hot
+Hot created
+// --> 点击切换到 Home
+// --> 点击切换到 Hot
+```
+
+即是只会创建一次，切换时也不销毁。
