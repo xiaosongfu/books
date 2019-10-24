@@ -6,7 +6,7 @@
 
 # 1. 生成 https 私钥和证书
 
-参考 “附1”
+使用 acme.sh 申请证书请参考 “附1”
 
 # 2. 使用私钥和证书配置 Secret
 
@@ -40,7 +40,8 @@ spec:
 
 # 附1. 生成 https 私钥和证书
 
-https://github.com/Neilpang/acme.sh/wiki/dns-manual-mode
+* https://github.com/Neilpang/acme.sh/wiki/dns-manual-mode
+* https://github.com/Neilpang/acme.sh/wiki/%E8%AF%B4%E6%98%8E
 
 ```
 $ curl  https://get.acme.sh | sh
