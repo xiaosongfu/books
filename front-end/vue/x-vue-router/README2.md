@@ -1,31 +1,17 @@
-```
-/ 字符串
-this.$router.push('/user') // 默认为 path
+## $router 对象 - 路由器
 
-// 对象
-this.$router.push({ path: '/user' }) // 使用 path
-this.$router.push({ name: 'user' }) // 使用 name
-
-// 命名的路由
-this.$router.push({ name: 'user', params: { userId: '123' }})
-
-// 带查询参数
-this.$router.push({ name: 'register', query: { plan: 'private' }})
-```
-
----
+## $route 对象 - 当前路由
 
 ```
-// 字符串
-next('/user') // 默认为 path
-
-// 对象
-next({ path: '/user' }) // 使用 path
-next({ name: 'user' }) // 使用 name
-
-// 命名的路由
-next({ name: 'user', params: { userId: '123' }})
-
-// 带查询参数
-next({ name: 'register', query: { plan: 'private' }})
+$route
+  path: "/Login"
+  query: Object(empty)
+  params: Object(empty)
+  fullPath: "/Login"
+  name: "login"
+  meta: Object(empty)
 ```
+
+## 匹配优先级
+
+有时候，同一个路径可以匹配多个路由，此时，匹配的优先级就按照路由的定义顺序：谁先定义的，谁的优先级就最高。
