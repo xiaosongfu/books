@@ -12,3 +12,9 @@ IP-PBX 与传统 PBX 或 PSTN 网络对接时，还需要相应的模拟网关�
 
 我们可以使用 FreeSWITCH 项目构建一个软交换类型的呼叫中心系统。
 
+
+---
+
+
+FreeSwitch 默认使用 SQLite 数据库，数据库文件为 db/core.db。
+
