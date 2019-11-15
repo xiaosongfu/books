@@ -67,6 +67,19 @@ freeswitch> originate sofia/gateway/gw-xiaoi/18512341234 &echo
 
 还可以更灵活的处理网关来话呼入，比如转接到语音菜单或者语音信箱等。
 
+如转接到 ivr：
+
+```
+<include>
+  <extension name="my did">
+    <condition field="destination_number" expression="^(0851848488652)$">
+    <action application="answer"/>
+    <action application="sleep" data="2000"/>
+    <action application="ivr" data="demo_ivr"/>
+  </extension>
+</include>
+```
+
 ---
 
 > 配置之前：
