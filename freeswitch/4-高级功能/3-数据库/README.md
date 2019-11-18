@@ -19,3 +19,15 @@ drwxr-x---. 7 freeswitch daemon     75 Nov  7 14:16 ..
 -rw-r--r--. 1 freeswitch daemon  97280 Nov 15 17:36 sofia_reg_internal.db
 -rw-r--r--. 1 freeswitch daemon  16384 Nov 14 17:46 voicemail_default.db
 ```
+
+## 核心数据库及各个模块数据库
+
+核心数据库： core.db
+mod_sofia 模块：sofia_reg_xx.db
+mod_fifo 模块：fifo.db
+
+## 打开数据库
+
+```
+sqlite3 core.db
+```
