@@ -8,6 +8,9 @@ socket.io 跨平台，跨终端，跨语言
 * 除本连接外，给某个房间内所有人发送消息：socket.to(room).emit()
 * 除本连接外，给所有人发送消息：socket.broadcast.emit()
 
+进入房间: `socket.join('chat');`
+离开房间: `socket.leave('chat');`
+
 ## 客户端使用 socket.io 处理消息
 
 处理 action 命令：
@@ -25,7 +28,7 @@ socket.io 跨平台，跨终端，跨语言
 
 ## 内置事件
 
-处理客户端连接事件：
+服务端处理客户端连接事件：
 
 io.sockets.on('connection', socket => {
 

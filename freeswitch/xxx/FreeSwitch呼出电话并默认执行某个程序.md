@@ -27,3 +27,25 @@ originate sofia/external/sip:1000@192.168.1.2:5080 &echo
 ```
 
 需要使用 external profile，并且要指定其他 FreeSwitch 服务器的 ip 地址 192.168.1.2 和 external profile 的端口 5080.
+
+---
+
+# 呼叫字符串种类
+
+// 本地用户
+originate user/1000 5000
+
+// 网关
+originate sofia/gateway/gw-xiaoi/18585436821 &echo
+
+// FreeSWITCH 双机对接
+originate sofia/external/sip:1000@192.168.1.2:5080 &echo
+originate sofia/external/1000@192.168.1.2 &echo
+
+// E1 网关
+originate freetdm/1/a/1000 &echo
+
+// H.323 协议
+originate h323/6000@192.168.1.1 &echo
+originate opal/h323:1000@192.168.1.1 &echo
+

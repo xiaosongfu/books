@@ -1,10 +1,14 @@
 https://segmentfault.com/a/1190000019458509
 
-## 初始化项目并安装 ts
+## 初始化项目
 
 ```
 npm init
+```
 
+## 安装 ts
+
+```
 npm install typescript @types/node -D
 
 tsc --init
