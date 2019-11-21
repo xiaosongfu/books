@@ -12,6 +12,8 @@
 <action application="playback" data="tone_stream://%(1000,4000,450)">
 
 <action application="playback" data="file_string:///tmp/1.wav!/tmp/2.wav!/tmp/3.wav">
+
+<action application="playback" data="vlc:///tmp/test.mp3" />
 ```
 
 mod_sndfile
@@ -20,6 +22,7 @@ mod_native_file
 mod_local_stream
 silence_stream
 mod_tone_stream
+mod_vlc
 
 ## 1. 声音文件
 
@@ -88,4 +91,16 @@ file_string 是一种更高级的文件格式，可以通过它将多个文件�
 
 ```
 <action application="set" data="playback_sleep_val=500" />
+```
+
+## 6. vlc
+
+mod_vlc 模块实现了一个 vlc 的文件接口。vlc 是一个跨平台的多媒体播放器，它能播放主流音视频文件。
+
+如下配置可以使用 mod_vlc 中的 vlc 文件接口播放音视频：
+
+```
+<action application="playback" data="vlc:///tmp/test.mp3" />
+
+<action application="playback" data="vlc:///tmp/foo.mp4" />
 ```

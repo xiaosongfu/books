@@ -10,4 +10,51 @@ session:sleep()
 session:hangup()
 ```
 
+## freeswitch 对象
 
+```
+freeswitch.consoleLog()
+
+api = freeswitch.API()
+v = api:execute('version')
+
+freeswitch.bridge()
+freeswitch.email()
+```
+
+## Event 相关函数
+
+```
+event = freeswitch.Event('CUSTOM', 'fs:test')
+event.addHeader('Content-Type', 'text/plain')
+event.addBody('hello world')
+
+event.delHeader('Content-Type')
+event.getHeader('Content-Type')
+event.getBody()
+
+event.serialize()
+event.serialize('json')
+event.serialize('xml')
+
+event.fire()
+```
+
+## Chat 相关函数
+
+Chatplan 中，lua 脚本会自动获得一个 message 对象。
+
+```
+
+```
+
+---
+
+* lua /tmp/ivr.lua arg1 arg2
+    * agrv[0] 为文件名
+    * argv[1] 为参数 arg1
+    * argv[2] 为参数 arg2
+
+* luarun /tmp/ivr.lua arg1 arg2
+
+lua 是在当前线程执行脚本；luarun 是在单独线程执行脚本。
