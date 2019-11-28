@@ -1,3 +1,16 @@
+
+Node 13.2.0 正式支持 ES Modules 特性，只要 package.json 文件中配置了：
+
+```
+{
+	"type": "module"
+}
+``
+
+就会按照 es module 来处理当前模块。
+
+---
+
 package.json 中包含各种所需模块以及项目的配置信息（名称、版本、许可证等）meta 信息。
 
 * 包含可配置项

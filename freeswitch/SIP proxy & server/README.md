@@ -1,7 +1,4 @@
-
-
-openSIPS
-
+OpenSIPS
 
 Kamailio
 

@@ -23,5 +23,7 @@ npm install --save-dev @types/jquery
 
 ---
 
-
+@types/node
 @types/axios
+@types/jest
+@types/socket.io
