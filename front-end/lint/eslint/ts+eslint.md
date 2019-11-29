@@ -1,0 +1,8 @@
+
+
+@typescript-eslint/parser
+
+---
+
+* []()
+

@@ -16,7 +16,6 @@ JSLint -> JSHint -> ESLint
 
 eslint
 
-
 ## plugin
 
 eslint-plugin-standard
@@ -24,18 +23,27 @@ eslint-plugin-promise
 eslint-plugin-import
 eslint-plugin-node
 
-eslint-plugin-html
+eslint-plugin-html # 用来处理 .vue 文件中的 script 标签内的 js 代码
 
-##
+eslint-plugin-vue
+
+## loader
 
 eslint-loader
-babel-eslint
+
+## 解析器
+
+* babel-eslint # ES 的接下去
+* @typescript-eslint/parser # ts 的解析器
 
 ## 规则
 
 * eslint-config-recommended
 * eslint-config-standard
 * eslint-config-airbnb
+
+* @vue/eslint-config-typescript
+* @vue/eslint-config-airbnb
 
 ---
 
@@ -44,6 +52,6 @@ babel-eslint
 
 ## 参考文章
 
-ESLint 使用简介 ttps://www.jianshu.com/p/933b6b6a84c9
+ESLint 使用简介 https://www.jianshu.com/p/933b6b6a84c9
 
 ESLint配置（一）：eslint默认及自定义规则介绍，上传自己的eslint-config-*风格文件 https://blog.csdn.net/guang_s/article/details/90231312
