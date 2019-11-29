@@ -30,11 +30,8 @@ Production (minified code, 297KB) sip-0.15.8.min.js.
 npm install -S sip.js
 ```
 
-## 2. `SIP.js Simple` vs `full API`
+## 3. `SIP.js Simple` vs `full API`
 
 * I am using Simple and would like to do something that is not supported. Can you add support for it?
 
 > No. Simple is intended to help get someone up and running quickly. If you need to do something more please upgrade to the [full SIP.js API](https://sipjs.com/api/0.15.0/).
-
-## 3. 
-

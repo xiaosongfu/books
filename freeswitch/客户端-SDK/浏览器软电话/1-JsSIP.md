@@ -29,7 +29,3 @@ wss://cantina.freeswitch.org:8082
 
 * As Node module: `npm install jssip`
 * Manually: [jssip.net/download](https://jssip.net/download/)
-
-
-## 3. 
-
