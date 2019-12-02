@@ -8,3 +8,15 @@ Xcode 中找到 `File -> Swift Packages -> Add package Dependency` 就可以快�
 
 ## 2. 手动添加
 
+在 Package.swift 清单文件的 dependencies 中添加依赖的地址和版本号：
+
+```
+dependencies: [
+    // Dependencies declare other packages that this package depends on.
+    // .package(url: /* package url */, from: "1.0.0"),
+    .package(url: "https://github.com/apple/swift-log.git", from: "1.2.0"),
+    .package(url: "https://github.com/xiaosongfu/HelloSPM.git", from: "0.1.1")
+]
+```
+
+添加完成后执行 `swift build` 命令就自动下载依赖并编译。

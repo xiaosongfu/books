@@ -34,7 +34,7 @@ refer(target[, options])
 // 呼出 Session 特有的方法
 cancel([options])
 
-// 呼如 Session 特有的方法
+// 呼入 Session 特有的方法
 progress([options])
 accept([options, modifiers])
 reject([options])

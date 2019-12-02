@@ -8,6 +8,8 @@ swift package generate-xcodeproj
 
 swift package update
 
+swift package show-dependencies
+
 swift build
 swift run
 swift test

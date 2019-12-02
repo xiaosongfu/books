@@ -11,6 +11,8 @@ let config = {
         wsServers: 'sip.xiaoi.com',
         traceSip: true,
     },
+    authorizationUser: '1010',
+    password: '1234',
     register: false,
 }
 let ua = new SIP.UA(config)
