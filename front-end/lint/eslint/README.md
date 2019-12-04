@@ -52,6 +52,7 @@ eslint-loader
 
 ## 参考文章
 
+ESLint在Vue中的使用 https://www.jianshu.com/p/04256932d5e5 !!!!
 ESLint 使用简介 https://www.jianshu.com/p/933b6b6a84c9
 
 ESLint配置（一）：eslint默认及自定义规则介绍，上传自己的eslint-config-*风格文件 https://blog.csdn.net/guang_s/article/details/90231312

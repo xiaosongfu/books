@@ -3,7 +3,9 @@ autoload_configs 目录下的各种配置文件会在系统启动时自动装入
 自动装入功能由 freeswitch.xml 中的配置完成：
 
 ```
-
+<section name="configuration" description="Various Configuration">
+    <X-PRE-PROCESS cmd="include" data="autoload_configs/*.xml"/>
+</section>
 ```
 
 ## modules.conf.xml 和 post_load_modules.conf.xml 和 pre_load_modules.conf.xml

@@ -6,6 +6,7 @@
         * [SIP.Session 类详解](sip-javascript/sip.js/4-session.md)
         * [SIP Message](sip-javascript/sip.js/5-message.md)
         * [失败和终止原因](sip-javascript/sip.js/6-failure-and-end-causes.md)
+        * [QA]](sip-javascript/sip.js/qa.md)
     * [1.2 jssip](sip-javascript/jssip/README.md)
         * [install](sip-javascript/jssip/1-install.md)
 
