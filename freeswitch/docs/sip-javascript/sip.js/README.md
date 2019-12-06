@@ -24,8 +24,8 @@ OnSIP 团队在开发一些基于 WebRTC 的产品时，就开始开发 SIP.js�
 
 ---
 
-
 参考：
+
 * [Download](https://sipjs.com/download/)
 * [SIP.UA](https://sipjs.com/api/0.15.0/ua/)
 * [SIP.Session](https://sipjs.com/api/0.15.0/session/)
