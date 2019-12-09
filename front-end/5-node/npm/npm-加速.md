@@ -38,6 +38,14 @@ npm config set python_mirror https://repo.huaweicloud.com/python
 
 ---
 
+```
+npm config set registry https://registry.npm.taobao.org
+npm config set disturl https://npm.taobao.org/dist
+npm config set puppeteer_download_host https://npm.taobao.org/mirrors
+```
+
+---
+
 > 安装 node-sass 失败
 
 解决方法：先设置 node-sass 的镜像地址，然后执行 `npm rebuild node-sass`

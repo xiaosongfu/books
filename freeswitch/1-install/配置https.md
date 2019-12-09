@@ -1,3 +1,5 @@
+> 目录：
+
 1. 配置 FreeSwitch 启用 Https
 2. 申请 https 证书
 3. 配置 https 证书
@@ -23,8 +25,6 @@
 <X-PRE-PROCESS cmd="set" data="external_ssl_enable=true"/>
 ```
 
-> 这个不需要的？
-
 修改 `conf/sip_profiles/internal.xml` 配置文件，确保 wss 端口绑定设置已经打开（默认就是已经打开了的）：
 
 ```
@@ -37,6 +37,10 @@
 ```
 
 ## 2. 申请 https 证书
+
+这里我们使用 [certbot](https://certbot.eff.org/lets-encrypt/centosrhel7-nginx) 自动从 let's encrypt 申请证书，需要先准备域名，并配置好 DNS 解析。
+
+使用 `certbot certonly` 申请证书：
 
 ```
 # certbot certonly
@@ -71,6 +75,20 @@ IMPORTANT NOTES:
 
    Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
    Donating to EFF:                    https://eff.org/donate-le
+```
+
+证书申请成功后会保存在 `/etc/letsencrypt/live/sip.xiaosongfu.com/` 目录：
+
+```
+# tree
+.
+└── sip.xiaosongfu.com
+    ├── cert.pem
+    ├── chain.pem
+    ├── fullchain.pem
+    └── privkey.pem
+
+1 directory, 4 files
 ```
 
 ## 3. 配置 https 证书
@@ -121,9 +139,24 @@ $ echo '' >> /usr/local/freeswitch/certs/wss.pem && cat cert.pem >> /usr/local/f
 sofia status profile internal
 ```
 
+如果有输出 `WSS-BIND-URL`，则表示配置成功，如：
+
+```
+RTP-IP           	172.16.0.4
+Ext-RTP-IP       	182.61.24.127
+SIP-IP           	172.16.0.4
+Ext-SIP-IP       	182.61.24.127
+URL              	sip:mod_sofia@182.61.24.127:5060
+BIND-URL         	sip:mod_sofia@182.61.24.127:5060;maddr=172.16.0.4;transport=udp,tcp
+TLS-URL          	sip:mod_sofia@182.61.24.127:5061
+TLS-BIND-URL     	sips:mod_sofia@182.61.24.127:5061;maddr=172.16.0.4;transport=tls
+WS-BIND-URL     	sip:mod_sofia@172.16.0.4:5066;transport=ws
+WSS-BIND-URL     	sips:mod_sofia@172.16.0.4:7443;transport=wss
+```
+
 ## 5. 使用 sip.js 连接测试
 
-使用 sip.js 连接的时候，`wsServers` 需要配置为：
+使用 sip.js 连接的时候，`wsServers` 需要配置为 `wss://sip.xiaosongfu.com:7443` ：
 
 ```
 let config = {
