@@ -1,4 +1,1 @@
 
-mod_xml_cdr
-mod_json_cdr
-mod_format_cdr

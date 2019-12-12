@@ -9,6 +9,8 @@ http://mint-ui.github.io/#!/zh-cn
 https://github.com/youzan/vant
 https://youzan.github.io/vant/#/zh-CN/intro
 
+https://github.com/youzan/vant-weapp 微信小程序
+
 ## mand-mobile
 
 https://github.com/didi/mand-mobile/blob/master/README.zh-CN.md
