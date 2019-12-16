@@ -13,7 +13,9 @@ make install
 编译后会在 /usr/local/ffmpeg/bin 下生成可执行文件：
 
 ```
-
+ffmpeg
+ffplay
+ffprob
 ```
 
 ---

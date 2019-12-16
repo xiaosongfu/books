@@ -9,3 +9,9 @@ mod_unimrcp 是在 UniMRCP 基础上在 FreeSwitch 中实现的一个模块，�
 ```
 
 
+## 阿里云 mrcp 实现 tts
+
+```
+<action application="set" data="tts_engine=unimrcp"/>
+<action application="set" data="tts_voice=xiaoyun"/>
+```

@@ -4,7 +4,7 @@
 
 ## 1. 相关概念
 
-go.mod 提供了 module, go，require、replace 和 exclude 指令：
+go.mod 提供了 module、go、require、replace 和 exclude 指令：
 
 * module 语句指定包的名字（路径）
 * go 指定 go 版本
@@ -46,12 +46,12 @@ go.mod 提供了 module, go，require、replace 和 exclude 指令：
 ```
 $ go mod tidy -v
 Fetching https://goproxy.io/github.com/xiaosongfu/go-asciibot/@v/list
-go: finding github.com/xiaosongfu/go-asciibot v0.0.1
-Fetching https://goproxy.io/github.com/xiaosongfu/go-asciibot/@v/v0.0.1.info
-go: downloading github.com/xiaosongfu/go-asciibot v0.0.1
-Fetching https://goproxy.io/github.com/xiaosongfu/go-asciibot/@v/v0.0.1.zip
-go: extracting github.com/xiaosongfu/go-asciibot v0.0.1
-Fetching https://goproxy.io/github.com/xiaosongfu/go-asciibot/@v/v0.0.1.mod
+go: finding github.com/xiaosongfu/go-asciibot v1.0.0
+Fetching https://goproxy.io/github.com/xiaosongfu/go-asciibot/@v/v1.0.0.info
+go: downloading github.com/xiaosongfu/go-asciibot v1.0.0
+Fetching https://goproxy.io/github.com/xiaosongfu/go-asciibot/@v/v1.0.0.zip
+go: extracting github.com/xiaosongfu/go-asciibot v1.0.0
+Fetching https://goproxy.io/github.com/xiaosongfu/go-asciibot/@v/v1.0.0.mod
 ```
 
 ## 5. 命令
