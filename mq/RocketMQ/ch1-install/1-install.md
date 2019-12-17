@@ -3,11 +3,10 @@ RocketMQ 的 Binary 版本是一些编译好的 jar 和辅助的 shell 脚本。
 ```
 wget http://mirrors.tuna.tsinghua.edu.cn/apache/rocketmq/4.6.0/rocketmq-all-4.6.0-bin-release.zip
 
-
 unzip rocketmq-all-4.6.0-bin-release.zip
 
 # 安装 jdk
-yum install -y java-1.8.0-openjdk
+yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel
 ```
 
 几个核心的 shell 脚本：
@@ -19,21 +18,41 @@ yum install -y java-1.8.0-openjdk
 
 ## 启动单机版
 
-启动单机版的 RocketMQ 比较简单，不需要写配置文件，只需依次启动 NameServer 和 Broker 即可：
-
-> 启动 nameserver
+启动单机版的 RocketMQ 比较简单，但是需要修改配置文件，我们使用默认提供的 `conf/broker.conf` 配置文件，该文件的内容如下：
 
 ```
-sh bin/mqnamesrv
+brokerClusterName = DefaultCluster
+brokerName = broker-a
+brokerId = 0
+deleteWhen = 04
+brokerIP1 = 192.168.160.11
+fileReservedTime = 48
+brokerRole = ASYNC_MASTER
+flushDiskType = ASYNC_FLUSH
 ```
 
-> 启动 broker
+我们需要指定 broker 自己监听的 IP 地址，以及 namesrv 的地址和端口，不然 rocketmq-console、mqadmin 客户端等会因为跨域而连接不上，只需添加 brokerIP1 和 namesrvAddr 即可：
 
 ```
-sh bin/mqbroker
+brokerIP1 = 192.168.160.11
+namesrvAddr = 192.168.160.11:9876
 ```
 
-> 关闭 broker 和 nameserver
+接下来依次启动 NameServer 和 Broker 即可：
+
+> 启动 nameserver：
+
+```
+nohup sh bin/mqnamesrv > nameserver.log 2>&1 &
+```
+
+> 启动 broker，需要指定配置文件：
+
+```
+nohup sh bin/mqbroker -c conf/broker.conf > broker.log 2>&1 &
+```
+
+> 关闭 broker 和 nameserver：
 
 ```
 sh bin/mqshutdown broker
