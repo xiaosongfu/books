@@ -52,6 +52,12 @@ nohup sh bin/mqnamesrv > nameserver.log 2>&1 &
 nohup sh bin/mqbroker -c conf/broker.conf > broker.log 2>&1 &
 ```
 
+也可以不使用配置文件，而是直接指定 nameserver 地址：
+
+```
+nohup sh bin/mqbroker -n localhost:9876 > broker.log 2>&1 &
+```
+
 > 关闭 broker 和 nameserver：
 
 ```

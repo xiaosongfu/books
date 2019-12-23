@@ -1,8 +1,13 @@
 
-* mqnamesrv
-* mqbroker
-* mqshutdown
-* mqadmin
+* Producer
+* Consumer
+* Broker
+
+Push Consumer
+Pull Consumer
+
+Producer Group
+Consumer Group
 
 ---
 
@@ -11,6 +16,21 @@
 
 * Tag
 * Key
+
+---
+
+* mqnamesrv
+* mqbroker
+* mqshutdown
+* mqadmin
+
+---
+
+底层通信框架采用 Netty NIO
+NameServer 代替 Zookeeper
+
+消费失败可重试
+消息可查询
 
 ---
 

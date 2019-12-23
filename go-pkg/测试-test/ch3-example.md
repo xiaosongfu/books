@@ -1,13 +1,14 @@
-* 测试文件要求
-* 测试方法签名要求
+* 示例文件要求
+* 示例方法签名要求
+* `Output:` 和 `Unordered output:`
 
 ---
 
-## 测试文件要求
+## 示例文件要求
 
-文件必须以 "_test.go" 结尾，但通常命名为 `example_test.go`。
+示例文件必须以 "_test.go" 结尾，但通常命名为 `example_test.go`。
 
-## 测试方法签名要求
+## 示例方法签名要求
 
 方法需要以 Example 开头，但是对参数没有要求，比如：`func ExampleXxx() {}` 或 `func ExampleXxx(num int) {}`
 
@@ -28,7 +29,8 @@ func ExamplePerm() {
     for _, value := range Perm(4) {
         fmt.Println(value)
     }
-    // Unordered output: 4
+    // Unordered output: 
+    // 4
     // 2
     // 1
     // 3
@@ -63,9 +65,12 @@ func TestAdder(t *testing.T) {
 func ExampleAdd() {
     sum := Add(1, 5)
     fmt.Println(sum)
-    // Output: 6
+    // Output:
+    // 6
 }
 ```
+
+> 也可以将 Output 写在一行：`Output: 6`
 
 ```
 $ go test -v
@@ -74,5 +79,3 @@ $ go test -v
 === RUN   ExampleAdd
 --- PASS: ExampleAdd (0.00s)
 ```
-
-## 

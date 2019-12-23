@@ -23,7 +23,7 @@ send_response.go
 go run main.go handlers.go send_response.go
 ```
 
-## 方法二： go runn .
+## 方法二： go run .
 
 ```
 go run .
@@ -31,7 +31,7 @@ go run .
 go run ./
 ```
 
-## 方法二： go runn package
+## 方法二： go run package
 
 注意：从Go 1.11开始，您可以将包的路径传递给 go run。这意味着您不再需要使用 `go run *.go` 通配符扩展等变通方法来运行多个文件。
 
