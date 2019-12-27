@@ -137,6 +137,9 @@ Boolean 类型。 是否在浏览器控制台打印发送和接收的 SIP 请求
 * [configuration 参数](https://sipjs.com/api/0.15.0/ua_configuration_parameters/)
 * [transportOptions 参数](https://sipjs.com/api/0.15.0/wstransport/#configuration-options)
 
+### 6. 
+
+
 ## 3. 方法
 
 `start() -> register() -> unregister() -> stop()`

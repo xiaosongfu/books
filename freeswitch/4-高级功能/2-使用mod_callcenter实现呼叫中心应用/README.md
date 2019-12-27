@@ -37,3 +37,20 @@ sipjs 获取 aleg uuid
 * cc_side
 * cc_member_session_uuid
 
+---
+
+```
+<param name="discard-abandoned-after" value="120">
+    <param name="abandoned-resume-allowed" value="true">
+```
+
+是否允许用户放弃后再次进入队列，并且保存先前的位置。abandoned-resume-allowed 为 true 表示允许，但是超过了  discard-abandoned-after 时就算允许也不能恢复先前的位置了。
+
+```
+<param name="tier-rule-wait-second" value="120">
+<param name="tier-rule-wait-multiply-level" value="true">
+```
+
+tier-rule-wait-second 从一个梯队前进到下一个梯队需要等待的时间，如果 tier-rule-wait-multiply-level 为 true，等待的时间还需要乘以下一个梯队的 level 值。
+
+
