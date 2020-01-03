@@ -1,4 +1,3 @@
-
 ## Collection 支持的操作
 
 Collection 支持以下这些操作，竖着看：
@@ -33,29 +32,29 @@ db.user.findOneAndReplace(          db.user.latencyStats(               db.user.
 db.user.findOneAndUpdate(           db.user.mapReduce(                  db.user.watch(
 ```
 
+> 新增
 
-db.user.insert()
-db.user.insertOne()
-db.user.insertMany()
-db.user.save()
+* db.user.insert()
+* db.user.insertOne()
+* db.user.insertMany()
 
+* db.user.save()
 
+> 删除
 
 db.user.deleteOne()
 db.user.deleteMany()
 
-
-
 db.user.drop()
 db.user.remove()
 
-
+> 更新
 
 db.user.update()
 db.user.updateOne()
 db.user.updateMany()
 
-
+> 查找
 
 db.user.find()
 db.user.findAndModify()

@@ -9,6 +9,8 @@ this.$route  : 当前路由
     this.$route.query
     this.$route.params
 
+this.$parent
+this.$children[0]
 
 ## 全局xx
 

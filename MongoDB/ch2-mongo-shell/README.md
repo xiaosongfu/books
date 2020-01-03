@@ -3,6 +3,10 @@ mongo shell 是用来操作 mongoDB 的基于 JavaScript 引擎的命令行客�
 使用 `mongo` 命令启动 mongo shell。
 
 ```
+mongo
+
+# 或
+
 docker exec -it mymongo mongo
 ```
 
@@ -19,5 +23,5 @@ print('hello')
 连接到 mongo docker 容器：
 
 ```
-$ docker exec -it some-mongo bash
+$ docker exec -it mymongo bash
 ```

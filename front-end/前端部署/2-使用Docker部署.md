@@ -2,7 +2,6 @@
 
 Dockerfile 配置如下：
 
-
 ```
 FROM node:alpine
 
@@ -45,6 +44,24 @@ server {
 
 ## 方式二：将构建好的静态资源放到 nignx 镜像内
 
+Dockerfile 配置如下：
+
+```
+FROM node:10 as build
+
+WORKDIR /app
+
+COPY . /app
+
+RUN npm install
+
+RUN npm run build
+
+
+FROM nginx:1.15-alpine
+
+COPY --from=build /app/dist /usr/share/nginx/html
+```
 
 跨越问题和方式一一样，任然使用 nginx 服务来解决，ningx 配置如下：
 
