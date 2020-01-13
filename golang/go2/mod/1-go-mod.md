@@ -1,16 +1,16 @@
 # mod 依赖管理
 
-依赖包的存放位置变更为$GOPATH/pkg，允许同一个package多个版本并存，且多个项目可以共享缓存的 module。
+依赖包的存放位置变更为 `$GOPATH/pkg`，允许同一个 package 多个版本并存，且多个项目可以共享缓存的 module。
 
 ## 1. 相关概念
 
 go.mod 提供了 module、go、require、replace 和 exclude 指令：
 
-* module 语句指定包的名字（路径）
-* go 指定 go 版本
-* require 语句指定的依赖项模块
-* replace 语句可以替换依赖项模块
-* exclude 语句可以忽略依赖项模块
+* `module`: 语句指定包的名字（路径）
+* `go`: 指定 go 版本
+* `require`: 语句指定的依赖项模块
+* `replace`: 语句可以替换依赖项模块
+* `exclude`: 语句可以忽略依赖项模块
 
 ## 2. 如何启用
 
