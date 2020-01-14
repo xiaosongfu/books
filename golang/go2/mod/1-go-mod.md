@@ -12,6 +12,23 @@ go.mod 提供了 module、go、require、replace 和 exclude 指令：
 * `replace`: 语句可以替换依赖项模块
 * `exclude`: 语句可以忽略依赖项模块
 
+```
+module example.com/foobar
+
+go 1.13
+
+require (    
+	example.com/apple v0.1.2
+	example.com/banana v1.2.3
+	example.com/banana/v2 v2.3.4
+	example.com/pineapple v0.0.0-20190924185754-1b0db40df49a
+)
+
+exclude example.com/pineapple v1.2.4
+replace example.com/apple v0.1.2 => example.com/rda v0.1.0
+replace example.com/banana  => example.com/hugebanana
+```
+
 ## 2. 如何启用
 
 

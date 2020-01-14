@@ -56,6 +56,9 @@ read 和 paly_and_get_digits 可以使用 playback 来播放 tts，所以需要�
 <action application="speak" data="tts_commandline|Ting-Ting|欢迎使用" />
 
 //---------
-
-<action application="set" data="tts_engine=unimrcp:ttsServerAddr" />
+<action application="set" data="tts_engine=unimrcp"/>
+<action application="set" data="tts_voice=xiaoyun"/>
+<action application="speak" data="欢迎使用" />
+或
+<action application="speak" data="unimrcp|xiaoyun|欢迎使用" />
 ```

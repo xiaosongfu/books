@@ -1,18 +1,30 @@
-## GOROOT 和 GOPATH
+* 1. GOROOT 和 GOPATH
+* 2. GOOS 和 GOARCH
+* 3. GOPROXY 和 GOSUMDB
+* 4. GONOPROXY 和 GONOSUMDB
+* 5. GOPRIVATE
 
-## GOPROXY 和 GOSUMDB
+---
+
+## 1. GOROOT 和 GOPATH
+
+GOPATH 废弃了？？还是使用默认值就够了？？
+
+## 2. GOOS 和 GOARCH
+
+## 3. GOPROXY 和 GOSUMDB
 
 Go module mirror and Go checksum database
 
 GOPROXY 的默认设置是 `https://proxy.golang.org,direct`
 
-## GONOPROXY 和 GONOSUMDB
+## 4. GONOPROXY 和 GONOSUMDB
 
 控制 go 应该不使用 GOPROXY 下载，而是直接去源头下载
 
 控制 go 应该忽略校验哪些 module path 下的模块
 
-## GOPRIVATE
+## 5. GOPRIVATE
 
 GOPRIVATE 环境变量允许绕过所选模块的代理。
 

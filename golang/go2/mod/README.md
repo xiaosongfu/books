@@ -2,7 +2,7 @@ https://github.com/go-modules-by-example/index
 
 ---
 
-在将代码提交/推回存储库之前，请运行go mod tidy以确保module文件是最新且准确的。您在本地构建，运行或测试的代码将随时影响Go对module文件中内容的更新。运行go mod tidy将确保项目具有所需内容的准确和完整的快照，这将帮助您团队中的其他人和您的CI/CD环境。
+在将代码提交/推回存储库之前，请运行 go mod tidy 以确保 module 文件是最新且准确的。您在本地构建，运行或测试的代码将随时影响 Go 对 module 文件中内容的更新。运行 go mod tidy 将确保项目具有所需内容的准确和完整的快照，这将帮助您团队中的其他人和您的 CI/CD环境。
 
 ---
 
@@ -17,10 +17,24 @@ $ go mod tidy
 ---
 
 
+```
+module example.com/foobar
+
+go 1.13
+
+require (    
+	example.com/apple v0.1.2
+	example.com/banana v1.2.3
+	example.com/banana/v2 v2.3.4
+	example.com/pineapple v0.0.0-20190924185754-1b0db40df49a
+)
+
+exclude example.com/pineapple v1.2.4
+replace example.com/apple v0.1.2 => example.com/rda v0.1.0
+replace example.com/banana  => example.com/hugebanana
+```
 
 ---
-
-
 
 如果提取的依赖项具有 go.mod 文件，则其依赖项将不会列在您的 go.mod 文件中。相反，如果您正在下载的依赖项没有 go.mod 文件，那么它的依赖项将列在您的 go.mod 文件中，并 `// indirect` 在它们旁边添加注释。
 
@@ -40,8 +54,10 @@ golang.org/x/sys/cpu
 
 在您对代码进行任何更改之前，我建议您运行以下两个命令来整理和验证您的依赖项：
 
+```
 $ go mod tidy
 $ go mod verify
+```
 
 该go mod tidy命令将修剪任何未使用的依赖从你go.mod和go.sum文件，并更新文件，包括所有可能的 build tags/OS/architecture 组合的依赖关系（注：go run，go test，go build等都是“懒惰”，将只取所需当前构建标签包/ OS /体系结构）。
 
