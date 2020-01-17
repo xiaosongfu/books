@@ -27,6 +27,21 @@ vue-template-compiler
 
 vue-style-loader
 
+---
+
+@vue/cli
+
+@vue/cli-service -- 
+@vue/cli-service-global -- 支持 vue serve/build
+
+@vue/cli-init -- 为了兼容 v2 版本的 vue init，不推荐使用
+
+
+> 官方插件：
+* @vue/cli-plugin-yyy
+
+> 社区插件：
+* vue-cli-plugin-xxx
 
 ---
 
@@ -41,3 +56,5 @@ babel-plugin-transform-runtime
 typescript
 
 ts-loader
+
+---
