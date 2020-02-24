@@ -6,17 +6,15 @@
 
 ---
 
-gradle 版本历史：https://gradle.org/releases/
-
-Android Gradle plugin 版本历史：https://developer.android.google.cn/studio/releases/gradle-plugin
-
-gradle 和 android gradle plugin 版本对应关系：https://developer.android.google.cn/studio/releases/gradle-plugin
+1. Gradle 版本历史：https://gradle.org/releases/
+2. Android Gradle Plugin 版本历史：https://developer.android.google.cn/studio/releases/gradle-plugin
+3. Gradle 和 Android Gradle Plugin 版本对应关系：https://developer.android.google.cn/studio/releases/gradle-plugin
 
 ---
 
 SDK Build Tools：https://developer.android.google.cn/studio/releases/build-tools.html
 
-===> SDK Build Tools 已改为使用 Android Gradle plugin 默认指定！！
+===> SDK Build Tools 已改为使用 Android Gradle Plugin 默认指定！！
 
 ---
 

@@ -20,13 +20,13 @@ go clean -testcache
 $ gofmt -w -s -d foo.go  # Format the foo.go file
 $ gofmt -w -s -d .       # Recursively format all files in the current directory and sub-directories
 
-
 * -w 标志指示工具在适当的位置重写文件
 * -s 指示工具在可能的情况下对代码应用简化
 * -d 标志指示工具输出更改的差异，如果您只想显示已更改文件的名称而不是差异，则可以将其替换为-l标志。
 
+常用：`gofmt -w -l .`
 
-gofmt命令以递归方式工作
+gofmt 命令以递归方式工作
 
 
 ---

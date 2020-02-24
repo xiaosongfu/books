@@ -1,0 +1,6 @@
+
+```
+rootProject.name = "gradle-test"
+
+
+```

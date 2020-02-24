@@ -52,6 +52,19 @@
 多值聚合
 强制贯穿
 
+对 slice 的再次 slice 可以在 cap 范围内扩展
+包级常量变量
+
+struct 的匿名字段/嵌入字段
+interface 的嵌入 interface
+
+
+
+多维数组
+复合 map
+
+
+
 x.(xx.YY)
 x.(type)  
 x.(int)  

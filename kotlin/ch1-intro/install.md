@@ -19,23 +19,22 @@ fun main(args: Array<String>) {
     println("hello world")
 }
 ```
+
 > 方式一
 
 使用 kotlinc 编译并使用 kotlin 运行。
 
-编译：
-`kotlinc hello.kt`
+编译：`kotlinc hello.kt`
 
 编译成功后会在当前目录下生成 helloKt.class 字节码文件。
 
-运行：
-`kotlin helloKt`
+运行：`kotlin helloKt`
 
 > 方式二
 
-为了⽅方便运⾏行和管理，往往会将 Kotlin 字节码⽂文件和 Kotlin 运⾏行时打包成⼀一个独⽴立的 jar ⽂文件。
+为了⽅便运⾏和管理，往往会将 Kotlin 字节码文件和 Kotlin 运行时打包成⼀一个独⽴的 jar ⽂文件。
 
-使用 kotlin 编译器编译： `kotlinc hello.kt -include-runtime -d hello.jar` 
+使用 kotlin 编译器编译：`kotlinc hello.kt -include-runtime -d hello.jar` 
 
 `-include-runtime` 选项会将 kotlin 运行时包含进去，使得它可以直接运行。
 

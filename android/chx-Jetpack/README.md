@@ -5,10 +5,12 @@ Jetpack 组件是 AndroidX 库的一部分。
 ---
 
 ## Foundation
+
 * AppCompat
-* Android KTc
+* Android KTX
 
 ## Architecture
+
 * Data Binding
 * LiveData
 * Room
@@ -18,6 +20,7 @@ Jetpack 组件是 AndroidX 库的一部分。
 ## UI
 
 ## Behavior
+
 * CameraX
 
 ---

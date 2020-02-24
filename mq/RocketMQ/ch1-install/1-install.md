@@ -1,3 +1,5 @@
+RocketMQ 的官网 https://rocketmq.apache.org/。
+
 RocketMQ 的 Binary 版本是一些编译好的 jar 和辅助的 shell 脚本。可以直接在官网下载；也可以下载源码后自己编译。
 
 ```
@@ -30,7 +32,7 @@ brokerRole = ASYNC_MASTER
 flushDiskType = ASYNC_FLUSH
 ```
 
-我们需要指定 broker 自己监听的 IP 地址，以及 namesrv 的地址和端口，不然 rocketmq-console、mqadmin 客户端等会因为跨域而连接不上，只需添加 brokerIP1 和 namesrvAddr 即可：
+我们需要指定 broker 自己监听的 IP 地址，以及 namesrv 的地址和端口，不然 rocketmq-console、mqadmin 客户端等会因为跨域而连接不上，只需要在 `conf/broker.conf` 配置文件中添加 brokerIP1 和 namesrvAddr 配置即可：
 
 ```
 brokerIP1 = 192.168.160.11
@@ -77,8 +79,11 @@ sh bin/tools.sh org.apache.rocketmq.example.quictstart.Producer
 sh bin/tools.sh org.apache.rocketmq.example.quictstart.Consumer
 ```
 
+更多信息请参考官方文档：[快速开始](https://rocketmq.apache.org/docs/quick-start/)
+
 ---
 
+> unzip rocketmq-all-4.6.0-bin-release 文件夹的内容如下：
 
 ````
 $ tree

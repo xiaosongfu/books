@@ -1,4 +1,4 @@
-按照官方文档说明 androidx 是对 android.support.xxx 包的整理后产物。由于之前的support包过于混乱，所以，google推出了 androidX。
+按照官方文档说明 androidx 是对 android.support.xxx 包的整理后产物。由于之前的 support 包过于混乱，所以，google 推出了 androidX。
 
 由于在后续版本中，会逐步放弃对 support 的升级和维护(Support Library Revision 28.0.0 将会是最后一个版本，谷歌鼓励大家迁移到 AndroidX)，所以，我们必须迁移到 androidX.对此，官方描述如下：
 

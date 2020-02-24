@@ -33,3 +33,4 @@
 
 * [Vue 3.0前的 TypeScript 最佳入门实践](https://mp.weixin.qq.com/s/yxXTx9Gn2HxP6S7lNG9wjA)
 
+* https://juejin.im/post/5e1bb2cb518825267f69964c
