@@ -8,13 +8,13 @@ swift package generate-xcodeproj
 
 swift package update
 
-
 swift package show-dependencies
+
+---
 
 swift build
 swift run
 swift test
-
 
 ---
 
@@ -101,5 +101,3 @@ OPTIONS:
   --watch                 Watch for changes to the Package manifest to regenerate the Xcode project
   --xcconfig-overrides    Path to xcconfig file
 ```
-
-
