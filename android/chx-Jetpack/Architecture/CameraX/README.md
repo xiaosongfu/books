@@ -23,4 +23,4 @@ Getting Started with CameraX：https://codelabs.developers.google.com/codelabs/c
 
 * Samples
 
-Camera Samples Repository：https://github.com/android/camera
+Camera Samples Repository：https://github.com/android/camera/tree/master/CameraXBasic

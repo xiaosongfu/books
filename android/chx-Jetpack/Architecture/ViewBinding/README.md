@@ -1,11 +1,15 @@
+> 参考：
+1. https://developer.android.google.cn/topic/libraries/view-binding?hl=cn
+2. [你好, View Binding! 再次再见, findViewById!](https://mp.weixin.qq.com/s/iNBj1dYT5g5dE7oIaL5BBA)
+3. https://blog.csdn.net/jklwan/article/details/102767871
+
+---
 
 * findViewById
 * Butter Knife(Kotter Knife)
 * Kotlin Android Extensions
 * Data Binding
 * View Binding
-
-参考：[你好, View Binding! 再次再见, findViewById!](https://mp.weixin.qq.com/s/iNBj1dYT5g5dE7oIaL5BBA)
 
 ---
 
@@ -65,7 +69,7 @@ privatelateinitvar binding: ResultProfileBinding
 @Override
 fun onCreate(savedInstanceState: Bundle) {
   super.onCreate(savedInstanceState)
-  binding = ResultProfileBinding.inflate(layoutInflater)
+  binding = ResultProfileBinding.inflate(LayoutInflater.from(this))
   setContentView(binding.root)
 }
 ```
