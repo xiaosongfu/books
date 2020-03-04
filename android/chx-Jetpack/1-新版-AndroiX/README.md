@@ -18,7 +18,7 @@ Migrating to AndroidX：https://developer.android.google.cn/jetpack/androidx/mig
 
 * Package Index 每个库里面都有哪些类：https://developer.android.google.cn/reference/androidx/packages
 
-* 每个库的所有的版本记录：https://dl.google.com/dl/android/maven2/index.html
+* 每个库的所有的版本记录：https://dl.google.com/dl/android/maven2/index.html -> 自动跳转到：https://maven.google.com/web/index.html
 
 * AndroidX Versions 最新的发布版本号：https://developer.android.google.cn/jetpack/androidx/versions
 

@@ -20,3 +20,15 @@ fun Column(
 
 ## 2. 使用
 
+```
+@Composable
+fun Input() {
+    Column {
+        var txt = state { "abc" }
+        Text(text = txt.value)
+        TextField(value = "", onValueChange = { newValue ->
+            txt.value = newValue
+        })
+    }
+}
+```

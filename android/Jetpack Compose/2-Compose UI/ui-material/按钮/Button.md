@@ -40,3 +40,14 @@ fun Button(
 ```
 
 ## 2. 使用
+
+基本使用：
+
+```
+Button(onClick = {
+    openDialog.value = false
+}) {
+    Text(text = "确认")
+}
+```
+
