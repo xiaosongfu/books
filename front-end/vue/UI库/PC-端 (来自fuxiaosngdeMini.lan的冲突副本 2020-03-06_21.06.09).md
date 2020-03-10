@@ -20,7 +20,3 @@ https://vuetifyjs.com/zh-Hans/
 
 https://github.com/vuematerial/vue-material
 https://vuematerial.io/
-
-## nutui
-
-http://nutui.jd.com/#/index
