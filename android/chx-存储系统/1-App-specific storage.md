@@ -6,15 +6,14 @@ https://developer.android.google.cn/training/data-storage/app-specific
 
 1. 访问特定于应用的内部存储
 2. 访问特定于应用的外部存储
-3. 查询可用空间
 
 ---
 
-* context.filesDir
-* context.cacheDir
+* context.filesDir : `/data/user/0/com.xiaoi.securityrecord/files`
+* context.cacheDir : `/data/user/0/com.xiaoi.securityrecord/cache`
 
-* context.getExternalFilesDir()
-* context.externalCacheDir
+* context.getExternalFilesDir() : `/storage/emulated/0/Android/data/com.xiaoi.securityrecord/files`
+* context.externalCacheDir      : `/storage/emulated/0/Android/data/com.xiaoi.securityrecord/cache`
 
 ---
 
@@ -155,7 +154,3 @@ fun getAppSpecificAlbumStorageDir(context: Context, albumName: String): File? {
 * 删除文件：`externalCacheFile.delete()`
 * ：``
 * ：``
-
-## 3. 查询可用空间
-
-
