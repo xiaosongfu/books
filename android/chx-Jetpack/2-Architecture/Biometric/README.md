@@ -1,8 +1,123 @@
-Biometric 是一个生物识别支持库，为开发者提供了 API 来实现验证功能，例如指纹识别等。
-
 https://developer.android.google.cn/jetpack/androidx/releases/biometric
 
-## 使用
-
 https://developer.android.com/training/sign-in/biometric-auth
+https://developer.android.com/reference/androidx/biometric/package-summary
+
+---
+
+Biometric 是一个生物识别支持库，为开发者提供了 API 来实现验证功能，例如指纹识别等。
+
+* BiometricManager
+* BiometricPrompt
+
+* BiometricPrompt.PromptInfo
+* BiometricPrompt.PromptInfo.Builder
+
+* BiometricPrompt.AuthenticationCallback
+* BiometricPrompt.AuthenticationResult
+* BiometricPrompt.CryptoObject
+
+---
+
+## 检查生物识别功能是否可用
+
+您可以通过在 BiometricManager 类中使用 canAuthenticate() 方法，在调用 BiometricPrompt 之前检查设备是否支持生物识别身份验证。
+
+```
+val biometricManager = BiometricManager.from(this)
+when (biometricManager.canAuthenticate()) {
+    BiometricManager.BIOMETRIC_SUCCESS ->
+        Log.d("App can authenticate using biometrics.")
+    BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE ->
+        Log.e("No biometric features available on this device.")
+    BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE ->
+        Log.e("Biometric features are currently unavailable.")
+    BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED ->
+        Log.e("The user hasn't associated any biometric credentials " +
+        "with their account.")
+}
+```
+
+## 显示生物识别凭据对话框
+
+使用由系统提供的生物识别凭据对话框在使用它的各个应用之间保持一致，从而打造更值得信赖的用户体验。
+
+```
+private val executor = Executor { }
+
+override fun onCreate(savedInstanceState: Bundle?) {
+    // ...
+    // Prompt appears when user clicks "Log in"
+    val biometricLoginButton: Button = findViewById(R.id.biometric_login)
+    biometricLoginButton.setOnClickListener { showBiometricPrompt() }
+}
+
+private fun showBiometricPrompt() {
+    val promptInfo = BiometricPrompt.PromptInfo.Builder()
+            .setTitle("Biometric login for my app")
+            .setSubtitle("Log in using your biometric credential")
+            .setNegativeButtonText("Cancel")
+            .build()
+
+    val biometricPrompt = BiometricPrompt(this, executor,
+            object : BiometricPrompt.AuthenticationCallback() {
+        override fun onAuthenticationError(errorCode: Int,
+                errString: CharSequence) {
+            super.onAuthenticationError(errorCode, errString)
+            Toast.makeText(applicationContext,
+                "Authentication error: $errString", Toast.LENGTH_SHORT)
+                .show()
+        }
+
+        override fun onAuthenticationSucceeded(
+                result: BiometricPrompt.AuthenticationResult) {
+            super.onAuthenticationSucceeded(result)
+            val cryObj = result.getCryptoObject()
+            // User has verified the signature, cipher, or message
+            // authentication code (MAC) associated with the crypto object,
+            // so you can use it in your app's crypto-driven workflows.
+            
+            // cryObj.cipher
+            // cryObj.signature
+            // cryObj.mac
+        }
+
+        override fun onAuthenticationFailed() {
+            super.onAuthenticationFailed()
+            Toast.makeText(applicationContext, "Authentication failed",
+                Toast.LENGTH_SHORT)
+                .show()
+        }
+    })
+
+    // Displays the "log in" prompt.
+    biometricPrompt.authenticate(promptInfo)
+}
+```
+
+## 是否需要用户执行特定的操作
+
+显示不需要显式用户操作来完成身份验证流程的对话框：
+
+```
+.setConfirmationRequired(false)
+```
+
+## 允许回退到非生物识别凭据
+
+如果用户无法使用生物识别凭据进行身份验证，您可以通过将 true 传递到 setDeviceCredentialAllowed() 方法中，允许他们利用设备 PIN 码、图案或密码进行身份验证。以下代码段展示了如何提供这种回退支持：
+
+```
+.setDeviceCredentialAllowed(true)
+```
+
+---
+
+## 指纹识别
+
+
+
+
+## 人脸识别
+
 
