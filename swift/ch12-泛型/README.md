@@ -1,5 +1,7 @@
 ## 泛型
 
+在尖括号里写一个名字来创建一个泛型函数或者类型。
+
 ```
 func makeArray<Item>(repeating item: Item, numberOfTimes: Int) -> [Item] {
     var result = [Item]()

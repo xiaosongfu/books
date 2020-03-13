@@ -7,3 +7,11 @@ Swift Package Manager 包含一个可以针对 macOS 和 Linux 进行构建的�
 ---
 
 Swift Package Manager 包含在 Xcode 8.0 和所有后续发行版中。
+
+
+---
+
+## 官方文档
+
+https://developer.apple.com/documentation/swift_packages
+
