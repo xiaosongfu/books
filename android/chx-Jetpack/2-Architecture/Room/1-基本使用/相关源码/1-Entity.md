@@ -4,7 +4,7 @@ https://developer.android.google.cn/training/data-storage/room/defining-data
 
 @Entity(tableName="", primaryKeys=["",""], ignoredColumns=["",""])
 @PrimaryKey(autoGenerate=flase)
-@ColumnInfo(name="", defaultValue="")
+@ColumnInfo(name="", defaultValue="", index=false)
 @Ignore
 
 ---

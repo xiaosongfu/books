@@ -6,7 +6,12 @@ https://developer.android.google.cn/training/data-storage/room
 
 Room 在 SQLite 上提供了一个抽象层，以便在充分利用 SQLite 的强大功能的同时，能够流畅地访问数据库。
 
+---
 
+
+生成的数据库在 `data/data/packageName/databases` 目录中。
+
+Dao 和 Database 相关文件在编译后会在 build 目录下生成 UserDao_Impl 和 AppDatabase_Impl 文件。
 
 ---
 
