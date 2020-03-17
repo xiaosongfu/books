@@ -1,0 +1,2 @@
+
+If you need to access a file as a stream at install time, save the file in your project's `/res/raw` directory. You can open these files with [openRawResource()](https://developer.android.google.cn/reference/android/content/res/Resources#openRawResource(int)), passing in the filename prefixed with R.raw as the resource ID. This method returns an InputStream that you can use to read the file. You cannot write to the original file.
