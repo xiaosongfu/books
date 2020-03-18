@@ -51,3 +51,10 @@ Button(onClick = {
 }
 ```
 
+不为 Button 定义宽高它将占据整个屏幕，通常可以将它放在一个 Container 里面：
+
+```
+Container(width = 60.dp, height = 20.dp) {
+    Button(onClick = {}) {}
+)
+```
