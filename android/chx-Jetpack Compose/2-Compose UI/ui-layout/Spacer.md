@@ -3,9 +3,12 @@
 ```
 @Composable
 fun Spacer(modifier: Modifier) {
-    Container(modifier = modifier) {}
+    Container(modifier = modifier, children = emptyContent())
 }
 ```
 
 ## 2. 使用
 
+```
+
+```

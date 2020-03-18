@@ -1,6 +1,8 @@
 
 
+---
 
+在 Swift 中，struct、enum、tuple 都是值类型，平时使用的 Int、Double、Float、String、Array、Set、Dictionary 等其实都是用 struct 实现的，所以他们也都是值类型。
 
 
 ---
@@ -26,7 +28,7 @@
 
 if 语句与强制解析
 可选绑定
-隐式解析可选
+隐式解析可选类型
 
 强制解析
 
