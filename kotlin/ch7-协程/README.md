@@ -1,30 +1,51 @@
-
-协程通过替代回调(callback)来简化异步代码。
+https://github.com/Kotlin/kotlinx.coroutines
 
 ---
 
-被 suspend 修饰的函数比普通函数多两个操作（suspend 和 resume） 
-* suspend：暂停当前协程的执行，保存所有的局部变量 
-* resume：从协程被暂停的地方继续执行协程。
 
-suspend 修饰的函数并不意味着运行在子线程中。如果需要指定协程运行的线程，就需要指定 Dispatchers ，常用的有三种： 
 
-* Dispatchers.Main：Android 中的主线程，可以直接操作 UI
-* Dispatchers.IO：针对磁盘和网络 IO 进行了优化，适合 IO 密集型的任务，比如：读写文件，操作数据库以及网络请求 
-* Dispatchers.Default：适合 CPU 密集型的任务，比如解析 JSON 文件，排序一个较大的 list
+协程作用域
 
-通过 `withContext()` 可以指定 Dispatchers，这里的 get() 函数里的 withContext 代码块中指定了协程运行在 `Dispatchers.IO` 中。 
+作用域构建器
 
-```
-suspend fun fetchDocs() {
-    val result = get("developer.android.com")
-    show(result)
-}
 
-suspend fun get(url: String) = withContext(Dispatchers.IO) {
-        ...
-    }
-```
+---
+
+本质上，协程是轻量级的线程。它们在某些 CoroutineScope 上下文中与 launch 协程构建器一起启动。
+
+调用了 runBlocking 的主线程会一直阻塞直到 runBlocking 内部的协程执行完毕。
+
+外部协程会直到在其作用域中启动的所有协程都执行完毕后才会结束。
+
+---
+
+GlobalScope.launch {}
+
+runBlocking {}
+
+coroutineScope {}
+
+---
+
+ coroutineScope 构建器会声明自己的作用域。它会创建一个协程作用域并且在所有已启动子协程执行完毕之前不会结束
+
+---
+
+suspend
+
+launch
+
+
+async/await
+
+
+runBlocking
+
+
+Dispatchers.Main
+Dispatchers.IO
+Dispatchers.Default
+
 
 ---
 
