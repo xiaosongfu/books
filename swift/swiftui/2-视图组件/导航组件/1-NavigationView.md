@@ -2,7 +2,7 @@
 
 NavigationView 用来实现导航功能，一种用法是在他里面包裹 List，在 List 的 item 用 NavigationLink 包裹，这样就可以实现点击 List 的 item 跳转界面。
 
-通过导航栏的标题设置为 List 的修饰器。
+通常导航栏的标题需要设置为 List 的修饰器。
 
 示例代码如下：
 
@@ -19,7 +19,7 @@ NavigationView {
             }
         }
     }
-    .navigationBarTitle(Text("Rooms"))
+    .navigationBarTitle(Text("Rooms")) // 导航栏标题
 }
 ```
 
@@ -47,6 +47,8 @@ struct RoomDetail_Previews: PreviewProvider {
     }
 }
 ```
+
+`navigationBarTitle()` 的 `displayMode` 参数可以控制标题的显示方式，是在左上角显示很大一块，还是内联显示在顶部。具体信息请参考：`4-导航栏标题和菜单项.md`
 
 ## 在预览时候使用 NavigationView
 

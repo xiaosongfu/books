@@ -1,19 +1,3 @@
-## 资料
-
-* https://developer.apple.com/xcode/swiftui/
-
-* https://developer.apple.com/tutorials/swiftui/
-* https://developer.apple.com/tutorials/swiftui/resources
-* https://developer.apple.com/tutorials/swiftui/tutorials
-* https://developer.apple.com/tutorials/swiftui/creating-and-combining-views
-* https://developer.apple.com/tutorials/swiftui/building-lists-and-navigation
-* https://developer.apple.com/tutorials/swiftui/handling-user-input
-
-## 官方文档
-
-* https://developer.apple.com/documentation/swiftui/
-
----
 
 ```
 import SwiftUI

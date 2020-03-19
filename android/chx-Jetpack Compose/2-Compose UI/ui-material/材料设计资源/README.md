@@ -43,3 +43,38 @@ typography.overline
 
 ```
 ```
+
+
+---
+
+h1 h2 等等这些都是 Typography 的属性，是一个 TextStyle 实例。
+
+```
+data class Typography(
+    val h1: TextStyle = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.W100,
+        fontSize = 96.sp),
+    val h2: TextStyle = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.W100,
+        fontSize = 60.sp),
+    val h3: TextStyle = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 48.sp),
+    val h4: TextStyle = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 34.sp),
+    val h5: TextStyle = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 24.sp),
+    val h6: TextStyle = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.W500,
+        fontSize = 20.sp),
+    ........
+)
+```
