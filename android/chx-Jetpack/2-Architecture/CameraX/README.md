@@ -24,3 +24,7 @@ Getting Started with CameraX：https://codelabs.developers.google.com/codelabs/c
 * Samples
 
 Camera Samples Repository：https://github.com/android/camera/tree/master/CameraXBasic
+
+---
+
+@20200317：Android’s CameraX Jetpack Library is now in Beta!：https://medium.com/androiddevelopers/androids-camerax-jetpack-library-is-now-in-beta-bf4cf0cc3ea6

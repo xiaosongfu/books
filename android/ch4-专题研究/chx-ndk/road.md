@@ -1,8 +1,13 @@
 ## 官方文档
-* 
 
-## codelab
+* https://developer.android.google.cn/ndk
+
+* https://github.com/googlesamples/android-ndk
+
+
+## Codelab
+
 * 
 * 
-* Create Hello-CMake with Android Studio https://codelabs.developers.google.com/codelabs/android-studio-cmake/#0
+* [Create Hello-CMake with Android Studio](https://codelabs.developers.google.com/codelabs/android-studio-cmake)
 
