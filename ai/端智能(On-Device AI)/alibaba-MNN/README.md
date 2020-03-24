@@ -1,5 +1,5 @@
 
-* [阿里又出新玩法|开箱即用的算法集 MNN](Kit https://mp.weixin.qq.com/s/YOTRFsdXuMagqZyt7i-pJw)
+* [阿里又出新玩法|开箱即用的算法集 MNN Kit](https://mp.weixin.qq.com/s/YOTRFsdXuMagqZyt7i-pJw)
 * [淘系专家带你初探端智能与MNN（上篇）](https://mp.weixin.qq.com/s/_s3ywxRvK7QuOww75lENvA)
 * [淘系专家带你初探端智能与MNN（下篇）](https://mp.weixin.qq.com/s/mj3_44pvQaXoWP9dW3R0tQ)
 
