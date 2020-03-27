@@ -32,4 +32,4 @@ ClickableSpan : 可点击
 参考：
 
 * https://www.jianshu.com/p/e5bd1287aa4f
-
+* https://www.jianshu.com/p/b5fb51529d06
